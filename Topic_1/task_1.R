@@ -89,7 +89,7 @@ p_wages <- ggplot(wage_data, aes(x = merkmale, y = wages)) +
 print(p_wages)
 
 ggsave(
-  filename = file.path(plot_dir, "2_boxplot_wages_by_education.pdf"),
+  filename = file.path(plot_dir, "1_boxplot_wages_by_education.pdf"),
   plot = p_wages,
   width = 8,
   height = 5
@@ -135,7 +135,7 @@ p_workers <- ggplot(worker_stats, aes(x = merkmale, y = p50_workers)) +
 print(p_workers)
 
 ggsave(
-  filename = file.path(plot_dir, "2_percentile_ranges_workers_by_education.pdf"),
+  filename = file.path(plot_dir, "1_percentile_ranges_workers_by_education.pdf"),
   plot = p_workers,
   width = 8,
   height = 5
@@ -164,7 +164,7 @@ p_map_all <- ggplot(map_data) +
 print(p_map_all)
 
 ggsave(
-  filename = file.path(plot_dir, "2_map_wages.pdf"),
+  filename = file.path(plot_dir, "1_map_wages.pdf"),
   plot = p_map_all,
   width = 10,
   height = 6
@@ -179,7 +179,7 @@ p_map_academic <- ggplot(map_data %>% filter(merkmale == "Academic degree")) +
   ggtitle("Academic degree") +
   theme_void()
 
-ggsave(file.path(plot_dir, "2_map_academic.pdf"), p_map_academic, width = 6, height = 6)
+ggsave(file.path(plot_dir, "1_map_academic.pdf"), p_map_academic, width = 6, height = 6)
 
 # Vocational
 p_map_vocational <- ggplot(map_data %>% filter(merkmale == "Recognized vocational qualification")) +
@@ -188,7 +188,7 @@ p_map_vocational <- ggplot(map_data %>% filter(merkmale == "Recognized vocationa
   ggtitle("Recognized vocational qualification") +
   theme_void()
 
-ggsave(file.path(plot_dir, "2_map_vocational.pdf"), p_map_vocational, width = 6, height = 6)
+ggsave(file.path(plot_dir, "1_map_vocational.pdf"), p_map_vocational, width = 6, height = 6)
 
 # No qualification
 p_map_noqual <- ggplot(map_data %>% filter(merkmale == "No vocational qualification")) +
@@ -197,4 +197,4 @@ p_map_noqual <- ggplot(map_data %>% filter(merkmale == "No vocational qualificat
   ggtitle("No vocational qualification") +
   theme_void()
 
-ggsave(file.path(plot_dir, "2_map_no_qualification.pdf"), p_map_noqual, width = 6, height = 6)
+ggsave(file.path(plot_dir, "1_map_no_qualification.pdf"), p_map_noqual, width = 6, height = 6)
