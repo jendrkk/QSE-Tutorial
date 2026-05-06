@@ -1,5 +1,5 @@
 # ==============================================================================
-# TASK 1: House Price Index (Final Coordinate Fix)
+# TASK 1: House Price Index (Corrected Parameters & Submarkets)
 # ==============================================================================
 library(housepriceindex)
 library(sf)
@@ -33,7 +33,7 @@ cities_dt <- data.table(
 # -------------------------
 # 3. Shapefile & GeoNames (Numeric Join)
 # -------------------------
-pc_sf <- st_read("POSTCODES/postcode_clean_final.shp", quiet = TRUE)
+pc_sf <- st_read("Data_/Shapefiles/postcode_clean_final.shp", quiet = TRUE)
 geo <- fread("geonames-postal-code.csv", sep = ";",
              colClasses = list(character = c("postal code", "admin code3", "admin name3")))
 
@@ -47,7 +47,6 @@ geo_filtered <- geo[admin_code3 %in% cities_dt$admin_code3, .(
     admin_code3
 )]
 
-# FIXED: Ensure GeoNames has strictly unique postal codes before joining
 geo_filtered <- unique(geo_filtered, by = "postal_num")
 
 final_shapefile <- pc_sf %>%
@@ -55,7 +54,7 @@ final_shapefile <- pc_sf %>%
     inner_join(geo_filtered, by = "postal_num") %>%
     mutate(target_id = as.character(postal_num))
 
-# Calculate Centroids - FIXED: Added distinct() to ensure AHS toolkit gets unique target IDs
+# Calculate Centroids
 centroids <- final_shapefile %>%
     st_centroid() %>%
     mutate(target_X = st_coordinates(.)[,1],
@@ -65,62 +64,90 @@ centroids <- final_shapefile %>%
     distinct(target_id, .keep_all = TRUE)
 
 # -------------------------
-# 4. Transaction Cleaning (No Trimming, 100m Jitter, Strict Coord Filter)
+# 4. Transaction Cleaning (Jitter, City Submarkets)
 # -------------------------
-DATA_PATH_PANEL <- 'Data/panel'
-grid_data <- read_dta("Data/GridGeoreferences/grid.coordinaten_xy.dta")
+DATA_PATH_PANEL <- 'Data_/panel'
+grid_data <- read_dta("Data_/GridGeoreferences/grid.coordinaten_xy.dta")
 
-process_submarket <- function(file_name, type, submarket_id) {
+process_submarket <- function(file_name, type) {
     price_col <- if(type == "rent") "mietekalt" else "kaufpreis"
 
     raw_df <- read_csv(file.path(DATA_PATH_PANEL, file_name), show_col_types = FALSE)
 
     df_clean <- raw_df %>%
+        mutate(postal_num = as_postal_num(plz)) %>%
+        # Join with our filtered cities to ensure we only keep targets in our 5 cities
+        # and attach the city_name so we can define isolated submarkets!
+        inner_join(geo_filtered %>% select(postal_num, city_name), by = "postal_num") %>%
         left_join(grid_data, by = "ergg_1km") %>%
         mutate(
             year = as.numeric(substr(as.character(adat), 1, 4)),
-            postal_num = as_postal_num(plz),
             target_id = as.character(postal_num),
             raw_p = clean_num(.data[[price_col]]),
             space = clean_num(wohnflaeche),
             price = raw_p / space,
 
-            # FIXED: Retained original column names for toolkit compatibility
             origin_X = origin_X + runif(n(), -100, 100),
             origin_Y = origin_Y + runif(n(), -100, 100),
-            submarket = as.integer(submarket_id)
+
+            # FIX: Submarkets should separate non-continuous markets.
+            # We map the 5 cities into factors 1 through 5.
+            submarket = as.integer(as.factor(city_name))
         ) %>%
-        # Filter for non-NA coordinates, valid price/year, and target ZIPs
         filter(
             !is.na(origin_X), !is.na(origin_Y),
             !is.na(price), is.finite(price), price > 0,
-            !is.na(year),
-            postal_num %in% unique(final_shapefile$postal_num)
+            !is.na(year)
         ) %>%
         select(target_id, price, year, origin_X, origin_Y, submarket)
 
     return(df_clean)
 }
 
-trans_hk <- suppressWarnings(process_submarket("CampusFile_HK_cities.csv", "sale", 1))
-trans_wk <- suppressWarnings(process_submarket("CampusFile_WK_cities.csv", "sale", 2))
-trans_wm <- suppressWarnings(process_submarket("CampusFile_WM_cities.csv", "rent", 3))
+# Notice we dropped the submarket_id argument since it's handled dynamically now.
+trans_hk <- suppressWarnings(process_submarket("CampusFile_HK_cities.csv", "sale"))
+trans_wk <- suppressWarnings(process_submarket("CampusFile_WK_cities.csv", "sale"))
+trans_wm <- suppressWarnings(process_submarket("CampusFile_WM_cities.csv", "rent"))
 
 # -------------------------
 # 5. AHS Index Execution
 # -------------------------
 run_index <- function(target_centroids, transactions) {
-    # FIXED: Coerce tibbles to raw data.frames so the toolkit's base R matrix logic does not fail
     target_centroids <- as.data.frame(target_centroids)
     transactions <- as.data.frame(transactions)
 
     valid_c <- target_centroids[target_centroids$target_id %in% unique(transactions$target_id), ]
     if(nrow(valid_c) == 0) return(NULL)
 
-    # observations_outer and inner set to ensure convergence in Campus File
-    calculate_index(valid_c, transactions,
-                    observations_outer = 6000,
-                    observations_inner = 600)
+    submarkets <- unique(transactions$submarket)
+    index_results <- list()
+
+    for(sm in submarkets) {
+        sm_trans <- transactions[transactions$submarket == sm, ]
+        sm_targets <- valid_c[valid_c$target_id %in% unique(sm_trans$target_id), ]
+
+        if(nrow(sm_targets) == 0) next
+
+        total_obs <- nrow(sm_trans)
+
+        # Target 5% for outer, 0.5% for inner, while enforcing minimum bounds
+        # to prevent the algorithm from failing on very small cities/samples.
+        dynamic_outer <- max(500, floor(total_obs * 0.1))
+        dynamic_inner <- max(100, floor(total_obs * 0.01))
+
+        message(sprintf("Calculating index for submarket %d: %d outer, %d inner observations", sm, dynamic_outer, dynamic_inner))
+
+        sm_index <- calculate_index(sm_targets, sm_trans,
+                                    observations_outer = dynamic_outer,
+                                    observations_inner = dynamic_inner,
+                                    max_radius_outer = 30,
+                                    skip_errors = TRUE)
+
+        index_results[[as.character(sm)]] <- sm_index
+    }
+
+    # Combine all city results back into a single dataframe
+    return(bind_rows(index_results))
 }
 
 index_hk <- run_index(centroids, trans_hk)
