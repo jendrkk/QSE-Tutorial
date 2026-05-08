@@ -1,0 +1,140 @@
+% MASTER FILE: Regression Results Tables (City-Specific Gammas Model)
+% For use in presentations and papers
+% Model: beta ~ year * C(city)
+
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\begin{document}
+
+% ============================================
+% TABLE 1: BASE TIME COEFFICIENT (Berlin reference)
+% ============================================
+
+\begin{table}[h!]
+\centering
+\caption{Base Time Coefficient ($\gamma_{Berlin}$) by Price Index and CBD Definition}
+\label{tab:gammas_results}
+\begin{tabular}{lcccc}
+\toprule
+Price Index & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Weekly Median Index & -0.001449^{***}\\ (0.000543) & -0.001921^{***}\\ (0.000579) & -0.001470^{**}\\ (0.000581) & -0.001999^{***}\\ (0.000194) \\
+Weekly Kwartil Index & -0.000114\\ (0.000783) & -0.000199\\ (0.000773) & -0.000110\\ (0.000758) & -0.000208\\ (0.000699) \\
+Half-Kwartil Index & 0.002941^{***}\\ (0.000992) & 0.002705^{**}\\ (0.001177) & 0.002957^{**}\\ (0.001144) & 0.002890^{***}\\ (0.000692) \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: Base time coefficient (Berlin) with standard errors in parentheses.
+City-specific time trends are calculated as $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
+
+% ============================================
+% TABLE 2: ALL CITY-SPECIFIC TIME COEFFICIENTS
+% ============================================
+
+\begin{table}[h!]
+\centering
+\caption{City-Specific Time Coefficients ($\gamma_{\text{city}}$) by Price Index and CBD Definition}
+\label{tab:city_gammas_results}
+\begin{tabular}{l|cc|cc|cc|cc}
+\toprule
+City & \multicolumn{4}{c}{Weekly Median} & \multicolumn{4}{c}{Weekly Kwartil} & \multicolumn{4}{c}{Half-Kwartil} \\
+  & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Berlin & -0.001449^{***} \\ (0.000543) & -0.001921^{***} \\ (0.000579) & -0.001470^{**} \\ (0.000581) & -0.001999^{***} \\ (0.000194) & -0.000114 \\ (0.000783) & -0.000199 \\ (0.000773) & -0.000110 \\ (0.000758) & -0.000208 \\ (0.000699) & 0.002941^{***} \\ (0.000992) & 0.002705^{**} \\ (0.001177) & 0.002957^{**} \\ (0.001144) & 0.002890^{***} \\ (0.000692) \\
+Frankfurt am Main & 2.236573^{***} \\ (0.000543) & 2.053783^{***} \\ (0.000579) & 2.980066^{***} \\ (0.000581) &  & 1.139419^{***} \\ (0.000783) & 0.849722^{***} \\ (0.000773) & 1.035523^{***} \\ (0.000758) &  & 8.112195^{***} \\ (0.000992) & 7.734152^{***} \\ (0.001177) & 8.219222^{***} \\ (0.001144) &  \\
+Hamburg & -1.552340^{***} \\ (0.000543) & -2.268903^{***} \\ (0.000579) & -1.314426^{***} \\ (0.000581) &  & 0.371306^{***} \\ (0.000783) & 0.176169^{***} \\ (0.000773) & 0.374877^{***} \\ (0.000758) &  & 4.729831^{***} \\ (0.000992) & 4.162975^{***} \\ (0.001177) & 4.670436^{***} \\ (0.001144) &  \\
+Köln & -1.940970^{***} \\ (0.000543) &  &  &  & 2.214805^{***} \\ (0.000783) &  &  &  & 8.702211^{***} \\ (0.000992) &  &  &  \\
+München & -1.406083^{***} \\ (0.000543) & -1.967204^{***} \\ (0.000579) & -1.118931^{***} \\ (0.000581) &  & -2.334857^{***} \\ (0.000783) & -2.634268^{***} \\ (0.000773) & -2.499754^{***} \\ (0.000758) &  & -2.518860^{***} \\ (0.000992) & -4.064954^{***} \\ (0.001177) & -3.546534^{***} \\ (0.001144) &  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: City-specific time coefficients with standard errors in parentheses.
+For Berlin (reference), $\gamma_{Berlin}$ is the base coefficient.
+For other cities: $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
+
+% ============================================
+% TABLES 3-5: CITY-SPECIFIC GAMMAS BY INDEX
+% ============================================
+
+\begin{table}[h!]
+\centering
+\caption{City-Specific Time Coefficients ($\gamma_{\text{city}})$: Weekly Median Index}
+\label{tab:city_gammas_index_wm}
+\begin{tabular}{lcccc}
+\toprule
+City & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Berlin & -0.001449^{***} \\ (0.000543) & -0.001921^{***} \\ (0.000579) & -0.001470^{**} \\ (0.000581) & -0.001999^{***} \\ (0.000194) \\
+Frankfurt am Main & 2.236573^{***} \\ (0.000543) & 2.053783^{***} \\ (0.000579) & 2.980066^{***} \\ (0.000581) &  \\
+Hamburg & -1.552340^{***} \\ (0.000543) & -2.268903^{***} \\ (0.000579) & -1.314426^{***} \\ (0.000581) &  \\
+Köln & -1.940970^{***} \\ (0.000543) &  &  &  \\
+München & -1.406083^{***} \\ (0.000543) & -1.967204^{***} \\ (0.000579) & -1.118931^{***} \\ (0.000581) &  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: City-specific time coefficients with standard errors in parentheses.
+For Berlin (reference): $\gamma_{Berlin}$ is the base coefficient.
+For other cities: $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{City-Specific Time Coefficients ($\gamma_{\text{city}})$: Weekly Kwartil Index}
+\label{tab:city_gammas_index_wk}
+\begin{tabular}{lcccc}
+\toprule
+City & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Berlin & -0.000114 \\ (0.000783) & -0.000199 \\ (0.000773) & -0.000110 \\ (0.000758) & -0.000208 \\ (0.000699) \\
+Frankfurt am Main & 1.139419^{***} \\ (0.000783) & 0.849722^{***} \\ (0.000773) & 1.035523^{***} \\ (0.000758) &  \\
+Hamburg & 0.371306^{***} \\ (0.000783) & 0.176169^{***} \\ (0.000773) & 0.374877^{***} \\ (0.000758) &  \\
+Köln & 2.214805^{***} \\ (0.000783) &  &  &  \\
+München & -2.334857^{***} \\ (0.000783) & -2.634268^{***} \\ (0.000773) & -2.499754^{***} \\ (0.000758) &  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: City-specific time coefficients with standard errors in parentheses.
+For Berlin (reference): $\gamma_{Berlin}$ is the base coefficient.
+For other cities: $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{City-Specific Time Coefficients ($\gamma_{\text{city}})$: Half-Kwartil Index}
+\label{tab:city_gammas_index_hk}
+\begin{tabular}{lcccc}
+\toprule
+City & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Berlin & 0.002941^{***} \\ (0.000992) & 0.002705^{**} \\ (0.001177) & 0.002957^{**} \\ (0.001144) & 0.002890^{***} \\ (0.000692) \\
+Frankfurt am Main & 8.112195^{***} \\ (0.000992) & 7.734152^{***} \\ (0.001177) & 8.219222^{***} \\ (0.001144) &  \\
+Hamburg & 4.729831^{***} \\ (0.000992) & 4.162975^{***} \\ (0.001177) & 4.670436^{***} \\ (0.001144) &  \\
+Köln & 8.702211^{***} \\ (0.000992) &  &  &  \\
+München & -2.518860^{***} \\ (0.000992) & -4.064954^{***} \\ (0.001177) & -3.546534^{***} \\ (0.001144) &  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: City-specific time coefficients with standard errors in parentheses.
+For Berlin (reference): $\gamma_{Berlin}$ is the base coefficient.
+For other cities: $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
+
+\end{document}

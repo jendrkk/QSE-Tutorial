@@ -1,0 +1,23 @@
+\begin{table}[h!]
+\centering
+\caption{City-Specific Time Coefficients ($\gamma_{\text{city}})$: Weekly Kwartil Index}
+\label{tab:city_gammas_index_wk}
+\begin{tabular}{lcccc}
+\toprule
+City & Index (PL) & Weighted Centroid & PL Centroid & Multi-CBD \\
+\midrule
+Berlin & -0.000114 \\ (0.000783) & -0.000199 \\ (0.000773) & -0.000110 \\ (0.000758) & -0.000208 \\ (0.000699) \\
+Frankfurt am Main & 1.139419^{***} \\ (0.000783) & 0.849722^{***} \\ (0.000773) & 1.035523^{***} \\ (0.000758) &  \\
+Hamburg & 0.371306^{***} \\ (0.000783) & 0.176169^{***} \\ (0.000773) & 0.374877^{***} \\ (0.000758) &  \\
+Köln & 2.214805^{***} \\ (0.000783) &  &  &  \\
+München & -2.334857^{***} \\ (0.000783) & -2.634268^{***} \\ (0.000773) & -2.499754^{***} \\ (0.000758) &  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\small
+Note: City-specific time coefficients with standard errors in parentheses.
+For Berlin (reference): $\gamma_{Berlin}$ is the base coefficient.
+For other cities: $\gamma_{\text{city}} = \gamma_{Berlin} + \gamma_{\text{city}}^{\text{interaction}}$.
+Significance levels: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.10$.
+\end{tablenotes}
+\end{table}
