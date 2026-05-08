@@ -1,0 +1,1414 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.9)  8 MAY 2026 12:03
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master"
+(/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen141
+\lightrulewidth=\dimen142
+\cmidrulewidth=\dimen143
+\belowrulesep=\dimen144
+\belowbottomsep=\dimen145
+\aboverulesep=\dimen146
+\abovetopsep=\dimen147
+\cmidrulesep=\dimen148
+\cmidrulekern=\dimen149
+\defaultaddspace=\dimen150
+\@cmidla=\count193
+\@cmidlb=\count194
+\@aboverulesep=\dimen151
+\@belowrulesep=\dimen152
+\@thisruleclass=\count195
+\@lastruleclass=\count196
+\@thisrulewidth=\dimen153
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box51
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count197
+\l__pdf_internal_box=\box52
+)
+No file all_tables_master.aux.
+\openout1 = `all_tables_master.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 16.
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 Weekly Median Index & -0.001449^
+                                     {***}\\ (0.000543) & -0.001921^{***}\\ ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.22 Weekly Median Index & -0.001449^{***}\\ (
+                                              0.000543) & -0.001921^{***}\\ ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 Weekly Median Index & -0.001449^{***}\\ (
+                                              0.000543) & -0.001921^{***}\\ ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing } inserted.
+<inserted text> 
+                }
+l.22 Weekly Median Index & -0.001449^{***}\\ (
+                                              0.000543) & -0.001921^{***}\\ ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ... -0.001449^{***}\\ (0.000543) & -0.001921^
+                                                  {***}\\ (0.000579) & -0.00...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.22 ...9^{***}\\ (0.000543) & -0.001921^{***}\\ (
+                                                  0.000579) & -0.001470^{**}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...9^{***}\\ (0.000543) & -0.001921^{***}\\ (
+                                                  0.000579) & -0.001470^{**}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing } inserted.
+<inserted text> 
+                }
+l.22 ...9^{***}\\ (0.000543) & -0.001921^{***}\\ (
+                                                  0.000579) & -0.001470^{**}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ... -0.001921^{***}\\ (0.000579) & -0.001470^
+                                                  {**}\\ (0.000581) & -0.001...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.22 ...21^{***}\\ (0.000579) & -0.001470^{**}\\ (
+                                                  0.000581) & -0.001999^{***...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...21^{***}\\ (0.000579) & -0.001470^{**}\\ (
+                                                  0.000581) & -0.001999^{***...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing } inserted.
+<inserted text> 
+                }
+l.22 ...21^{***}\\ (0.000579) & -0.001470^{**}\\ (
+                                                  0.000581) & -0.001999^{***...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...& -0.001470^{**}\\ (0.000581) & -0.001999^
+                                                  {***}\\ (0.000194) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.22 ...70^{**}\\ (0.000581) & -0.001999^{***}\\ (
+                                                  0.000194) \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...70^{**}\\ (0.000581) & -0.001999^{***}\\ (
+                                                  0.000194) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:22: Missing } inserted.
+<inserted text> 
+                }
+l.22 ...70^{**}\\ (0.000581) & -0.001999^{***}\\ (
+                                                  0.000194) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 Half-Kwartil Index & 0.002941^
+                                   {***}\\ (0.000992) & 0.002705^{**}\\ (0.0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.24 Half-Kwartil Index & 0.002941^{***}\\ (
+                                            0.000992) & 0.002705^{**}\\ (0.0...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 Half-Kwartil Index & 0.002941^{***}\\ (
+                                            0.000992) & 0.002705^{**}\\ (0.0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing } inserted.
+<inserted text> 
+                }
+l.24 Half-Kwartil Index & 0.002941^{***}\\ (
+                                            0.000992) & 0.002705^{**}\\ (0.0...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ... & 0.002941^{***}\\ (0.000992) & 0.002705^
+                                                  {**}\\ (0.001177) & 0.0029...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.24 ...941^{***}\\ (0.000992) & 0.002705^{**}\\ (
+                                                  0.001177) & 0.002957^{**}\...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...941^{***}\\ (0.000992) & 0.002705^{**}\\ (
+                                                  0.001177) & 0.002957^{**}\...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing } inserted.
+<inserted text> 
+                }
+l.24 ...941^{***}\\ (0.000992) & 0.002705^{**}\\ (
+                                                  0.001177) & 0.002957^{**}\...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...) & 0.002705^{**}\\ (0.001177) & 0.002957^
+                                                  {**}\\ (0.001144) & 0.0028...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.24 ...2705^{**}\\ (0.001177) & 0.002957^{**}\\ (
+                                                  0.001144) & 0.002890^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...2705^{**}\\ (0.001177) & 0.002957^{**}\\ (
+                                                  0.001144) & 0.002890^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing } inserted.
+<inserted text> 
+                }
+l.24 ...2705^{**}\\ (0.001177) & 0.002957^{**}\\ (
+                                                  0.001144) & 0.002890^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...) & 0.002957^{**}\\ (0.001144) & 0.002890^
+                                                  {***}\\ (0.000692) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.24 ...957^{**}\\ (0.001144) & 0.002890^{***}\\ (
+                                                  0.000692) \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...957^{**}\\ (0.001144) & 0.002890^{***}\\ (
+                                                  0.000692) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:24: Missing } inserted.
+<inserted text> 
+                }
+l.24 ...957^{**}\\ (0.001144) & 0.002890^{***}\\ (
+                                                  0.000692) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (50.93129pt too wide) in paragraph at lines 18--27
+ [][] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 30.
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:30: Undefined control sequence.
+l.30 ...me trends are calculated as $\gamma_{\text
+                                                  {city}} = \gamma_{Berlin} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:30: Undefined control sequence.
+l.30 ...t{city}} = \gamma_{Berlin} + \gamma_{\text
+                                                  {city}}^{\text{interaction...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:30: Undefined control sequence.
+l.30 ...mma_{Berlin} + \gamma_{\text{city}}^{\text
+                                                  {interaction}}$.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 3579) in paragraph at lines 29--32
+ []\OT1/cmr/m/n/9 Note: Base time co-ef-fi-cient (Berlin) with stan-dard er-rors in paren-the- 
+ []
+
+
+Underfull \hbox (badness 5119) in paragraph at lines 29--32
+ \OT1/cmr/m/n/9 ses. City-specific time trends are cal-cu-lated as $\OML/cmm/m/it/9 ^^M[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 ^^M[] \OT1/cmr/m/n/9 + 
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 29--32
+ \OML/cmm/m/it/9 ^^M[]$\OT1/cmr/m/n/9 . Sig-nif-i-cance lev-els: $[]\OML/cmm/m/it/9 p < \OT1/cmr/m/n/9 0\OML/cmm/m/it/9 :\OT1/cmr/m/n/9 01$, $[]\OML/cmm/m/it/9 p < \OT1/cmr/m/n/9 0\OML/cmm/m/it/9 :\OT1/cmr/m/n/9 05$, $[]\OML/cmm/m/it/9 p < \OT1/cmr/m/n/9 0\OML/cmm/m/it/9 :\OT1/cmr/m/n/9 10$. 
+ []
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:41: Undefined control sequence.
+<argument> ... Time Coefficients ($\gamma _{\text 
+                                                  {city}}$) by Price Index a...
+l.41 ...ity}}$) by Price Index and CBD Definition}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:41: Undefined control sequence.
+<argument> ... Time Coefficients ($\gamma _{\text 
+                                                  {city}}$) by Price Index a...
+l.41 ...ity}}$) by Price Index and CBD Definition}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:41: Undefined control sequence.
+<argument> ... Time Coefficients ($\gamma _{\text 
+                                                  {city}}$) by Price Index a...
+l.41 ...ity}}$) by Price Index and CBD Definition}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:45: Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.45 ...an} & \multicolumn{4}{c}{Weekly Kwartil} &
+                                                   \multicolumn{4}{c}{Half-K...
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:46: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.46 ...ghted Centroid & PL Centroid & Multi-CBD &
+                                                   Index (PL) & Weighted Cen...
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 Berlin & -0.001449^
+                        {***} \\ (0.000543) & -0.001921^{***} \\ (0.000579) ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 Berlin & -0.001449^{***} \\ (
+                                  0.000543) & -0.001921^{***} \\ (0.000579) ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 Berlin & -0.001449^{***} \\ (
+                                  0.000543) & -0.001921^{***} \\ (0.000579) ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 Berlin & -0.001449^{***} \\ (
+                                  0.000543) & -0.001921^{***} \\ (0.000579) ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...-0.001449^{***} \\ (0.000543) & -0.001921^
+                                                  {***} \\ (0.000579) & -0.0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...{***} \\ (0.000543) & -0.001921^{***} \\ (
+                                                  0.000579) & -0.001470^{**}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...{***} \\ (0.000543) & -0.001921^{***} \\ (
+                                                  0.000579) & -0.001470^{**}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...{***} \\ (0.000543) & -0.001921^{***} \\ (
+                                                  0.000579) & -0.001470^{**}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...-0.001921^{***} \\ (0.000579) & -0.001470^
+                                                  {**} \\ (0.000581) & -0.00...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...^{***} \\ (0.000579) & -0.001470^{**} \\ (
+                                                  0.000581) & -0.001999^{***...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...^{***} \\ (0.000579) & -0.001470^{**} \\ (
+                                                  0.000581) & -0.001999^{***...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...^{***} \\ (0.000579) & -0.001470^{**} \\ (
+                                                  0.000581) & -0.001999^{***...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ... -0.001470^{**} \\ (0.000581) & -0.001999^
+                                                  {***} \\ (0.000194) & -0.0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...^{**} \\ (0.000581) & -0.001999^{***} \\ (
+                                                  0.000194) & -0.000114 \\ (...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...^{**} \\ (0.000581) & -0.001999^{***} \\ (
+                                                  0.000194) & -0.000114 \\ (...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...^{**} \\ (0.000581) & -0.001999^{***} \\ (
+                                                  0.000194) & -0.000114 \\ (...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...758) & -0.000208 \\ (0.000699) & 0.002941^
+                                                  {***} \\ (0.000992) & 0.00...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...000208 \\ (0.000699) & 0.002941^{***} \\ (
+                                                  0.000992) & 0.002705^{**} ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...000208 \\ (0.000699) & 0.002941^{***} \\ (
+                                                  0.000992) & 0.002705^{**} ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...000208 \\ (0.000699) & 0.002941^{***} \\ (
+                                                  0.000992) & 0.002705^{**} ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...& 0.002941^{***} \\ (0.000992) & 0.002705^
+                                                  {**} \\ (0.001177) & 0.002...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...1^{***} \\ (0.000992) & 0.002705^{**} \\ (
+                                                  0.001177) & 0.002957^{**} ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...1^{***} \\ (0.000992) & 0.002705^{**} \\ (
+                                                  0.001177) & 0.002957^{**} ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...1^{***} \\ (0.000992) & 0.002705^{**} \\ (
+                                                  0.001177) & 0.002957^{**} ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ... & 0.002705^{**} \\ (0.001177) & 0.002957^
+                                                  {**} \\ (0.001144) & 0.002...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...05^{**} \\ (0.001177) & 0.002957^{**} \\ (
+                                                  0.001144) & 0.002890^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...05^{**} \\ (0.001177) & 0.002957^{**} \\ (
+                                                  0.001144) & 0.002890^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...05^{**} \\ (0.001177) & 0.002957^{**} \\ (
+                                                  0.001144) & 0.002890^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ... & 0.002957^{**} \\ (0.001144) & 0.002890^
+                                                  {***} \\ (0.000692) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.48 ...7^{**} \\ (0.001144) & 0.002890^{***} \\ (
+                                                  0.000692) \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48 ...7^{**} \\ (0.001144) & 0.002890^{***} \\ (
+                                                  0.000692) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:48: Missing } inserted.
+<inserted text> 
+                }
+l.48 ...7^{**} \\ (0.001144) & 0.002890^{***} \\ (
+                                                  0.000692) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 Frankfurt am Main & 2.236573^
+                                  {***} \\ (0.000543) & 2.053783^{***} \\ (0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 Frankfurt am Main & 2.236573^{***} \\ (
+                                            0.000543) & 2.053783^{***} \\ (0...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 Frankfurt am Main & 2.236573^{***} \\ (
+                                            0.000543) & 2.053783^{***} \\ (0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 Frankfurt am Main & 2.236573^{***} \\ (
+                                            0.000543) & 2.053783^{***} \\ (0...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 2.236573^{***} \\ (0.000543) & 2.053783^
+                                                  {***} \\ (0.000579) & 2.98...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.000543) & 2.053783^{***} \\ (
+                                                  0.000579) & 2.980066^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.000543) & 2.053783^{***} \\ (
+                                                  0.000579) & 2.980066^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.000543) & 2.053783^{***} \\ (
+                                                  0.000579) & 2.980066^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 2.053783^{***} \\ (0.000579) & 2.980066^
+                                                  {***} \\ (0.000581) &  & 1...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.000579) & 2.980066^{***} \\ (
+                                                  0.000581) &  & 1.139419^{*...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.000579) & 2.980066^{***} \\ (
+                                                  0.000581) &  & 1.139419^{*...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.000579) & 2.980066^{***} \\ (
+                                                  0.000581) &  & 1.139419^{*...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ....980066^{***} \\ (0.000581) &  & 1.139419^
+                                                  {***} \\ (0.000783) & 0.84...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \hskip -.5\arrayrulewidth \vrule...
+l.49 ...**} \\ (0.000581) &  & 1.139419^{***} \\ (
+                                                  0.000783) & 0.849722^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...**} \\ (0.000581) &  & 1.139419^{***} \\ (
+                                                  0.000783) & 0.849722^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...**} \\ (0.000581) &  & 1.139419^{***} \\ (
+                                                  0.000783) & 0.849722^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 1.139419^{***} \\ (0.000783) & 0.849722^
+                                                  {***} \\ (0.000773) & 1.03...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.000783) & 0.849722^{***} \\ (
+                                                  0.000773) & 1.035523^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.000783) & 0.849722^{***} \\ (
+                                                  0.000773) & 1.035523^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.000783) & 0.849722^{***} \\ (
+                                                  0.000773) & 1.035523^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 0.849722^{***} \\ (0.000773) & 1.035523^
+                                                  {***} \\ (0.000758) &  & 8...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.000773) & 1.035523^{***} \\ (
+                                                  0.000758) &  & 8.112195^{*...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.000773) & 1.035523^{***} \\ (
+                                                  0.000758) &  & 8.112195^{*...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.000773) & 1.035523^{***} \\ (
+                                                  0.000758) &  & 8.112195^{*...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ....035523^{***} \\ (0.000758) &  & 8.112195^
+                                                  {***} \\ (0.000992) & 7.73...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \hskip -.5\arrayrulewidth \vrule...
+l.49 ...**} \\ (0.000758) &  & 8.112195^{***} \\ (
+                                                  0.000992) & 7.734152^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...**} \\ (0.000758) &  & 8.112195^{***} \\ (
+                                                  0.000992) & 7.734152^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...**} \\ (0.000758) &  & 8.112195^{***} \\ (
+                                                  0.000992) & 7.734152^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 8.112195^{***} \\ (0.000992) & 7.734152^
+                                                  {***} \\ (0.001177) & 8.21...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.000992) & 7.734152^{***} \\ (
+                                                  0.001177) & 8.219222^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.000992) & 7.734152^{***} \\ (
+                                                  0.001177) & 8.219222^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.000992) & 7.734152^{***} \\ (
+                                                  0.001177) & 8.219222^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...& 7.734152^{***} \\ (0.001177) & 8.219222^
+                                                  {***} \\ (0.001144) &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.49 ...^{***} \\ (0.001177) & 8.219222^{***} \\ (
+                                                  0.001144) &  \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49 ...^{***} \\ (0.001177) & 8.219222^{***} \\ (
+                                                  0.001144) &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49 ...^{***} \\ (0.001177) & 8.219222^{***} \\ (
+                                                  0.001144) &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 Hamburg & -1.552340^
+                         {***} \\ (0.000543) & -2.268903^{***} \\ (0.000579)...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 Hamburg & -1.552340^{***} \\ (
+                                   0.000543) & -2.268903^{***} \\ (0.000579)...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 Hamburg & -1.552340^{***} \\ (
+                                   0.000543) & -2.268903^{***} \\ (0.000579)...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 Hamburg & -1.552340^{***} \\ (
+                                   0.000543) & -2.268903^{***} \\ (0.000579)...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...-1.552340^{***} \\ (0.000543) & -2.268903^
+                                                  {***} \\ (0.000579) & -1.3...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 ...{***} \\ (0.000543) & -2.268903^{***} \\ (
+                                                  0.000579) & -1.314426^{***...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...{***} \\ (0.000543) & -2.268903^{***} \\ (
+                                                  0.000579) & -1.314426^{***...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...{***} \\ (0.000543) & -2.268903^{***} \\ (
+                                                  0.000579) & -1.314426^{***...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...-2.268903^{***} \\ (0.000579) & -1.314426^
+                                                  {***} \\ (0.000581) &  & 0...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 ...{***} \\ (0.000579) & -1.314426^{***} \\ (
+                                                  0.000581) &  & 0.371306^{*...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...{***} \\ (0.000579) & -1.314426^{***} \\ (
+                                                  0.000581) &  & 0.371306^{*...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...{***} \\ (0.000579) & -1.314426^{***} \\ (
+                                                  0.000581) &  & 0.371306^{*...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ....314426^{***} \\ (0.000581) &  & 0.371306^
+                                                  {***} \\ (0.000783) & 0.17...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \hskip -.5\arrayrulewidth \vrule...
+l.50 ...**} \\ (0.000581) &  & 0.371306^{***} \\ (
+                                                  0.000783) & 0.176169^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...**} \\ (0.000581) &  & 0.371306^{***} \\ (
+                                                  0.000783) & 0.176169^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...**} \\ (0.000581) &  & 0.371306^{***} \\ (
+                                                  0.000783) & 0.176169^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...& 0.371306^{***} \\ (0.000783) & 0.176169^
+                                                  {***} \\ (0.000773) & 0.37...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 ...^{***} \\ (0.000783) & 0.176169^{***} \\ (
+                                                  0.000773) & 0.374877^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...^{***} \\ (0.000783) & 0.176169^{***} \\ (
+                                                  0.000773) & 0.374877^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...^{***} \\ (0.000783) & 0.176169^{***} \\ (
+                                                  0.000773) & 0.374877^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...& 0.176169^{***} \\ (0.000773) & 0.374877^
+                                                  {***} \\ (0.000758) &  & 4...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 ...^{***} \\ (0.000773) & 0.374877^{***} \\ (
+                                                  0.000758) &  & 4.729831^{*...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...^{***} \\ (0.000773) & 0.374877^{***} \\ (
+                                                  0.000758) &  & 4.729831^{*...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...^{***} \\ (0.000773) & 0.374877^{***} \\ (
+                                                  0.000758) &  & 4.729831^{*...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ....374877^{***} \\ (0.000758) &  & 4.729831^
+                                                  {***} \\ (0.000992) & 4.16...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \hskip -.5\arrayrulewidth \vrule...
+l.50 ...**} \\ (0.000758) &  & 4.729831^{***} \\ (
+                                                  0.000992) & 4.162975^{***}...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...**} \\ (0.000758) &  & 4.729831^{***} \\ (
+                                                  0.000992) & 4.162975^{***}...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing } inserted.
+<inserted text> 
+                }
+l.50 ...**} \\ (0.000758) &  & 4.729831^{***} \\ (
+                                                  0.000992) & 4.162975^{***}...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 ...& 4.729831^{***} \\ (0.000992) & 4.162975^
+                                                  {***} \\ (0.001177) & 4.67...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.50 ...^{***} \\ (0.000992) & 4.162975^{***} \\ (
+                                                  0.001177) & 4.670436^{***}...
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 585 strings out of 476025
+ 11528 string characters out of 5790018
+ 1858388 words of memory out of 5000000
+ 21110 multiletter control sequences out of 15000+600000
+ 514110 words of font info for 38 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 34i,10n,38p,519b,256s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_2/Output/latex_tables/all_tables_master.tex:50:  ==> Fatal error occurred, no output PDF file produced!
