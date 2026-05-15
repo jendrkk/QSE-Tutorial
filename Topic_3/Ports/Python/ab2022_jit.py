@@ -106,9 +106,14 @@ def _sweep_worker(args):
     current_params[param_name] = value
     
     # Heuristic for residential cost if only commercial is varied
+    '''
     if param_name == 'theta_C' and 'theta_R' not in base_params:
         current_params['theta_R'] = value + 0.05
+    '''
         
+    if param_name == 'theta_C':   # always apply, not conditional on theta_R absence
+        current_params['theta_R'] = value + 0.05
+    
     try:
         model = AB2022JITModel(current_params)
         # We check if the user wants an Open City or Closed City sweep. 
@@ -118,6 +123,9 @@ def _sweep_worker(args):
         U = res['U']
         dist = res['dist']
         S_x = res['S_x']
+        
+        grid_step = 100 / 10000   # 100 km range over 10001 points → step = 0.01 km
+        total_floor_space = np.sum(S_x) * grid_step
         
         # Radii
         cbd_radius = np.max(dist[U == 1]) if np.any(U == 1) else 0.0
@@ -146,6 +154,7 @@ def _sweep_worker(args):
             'max_p_C': max_p_C, 'max_p_R': max_p_R,
             'max_r_C': max_r_C, 'max_r_R': max_r_R,
             'heights': S_x, 'land_rents': r_env, 'floor_rents': p_env,
+            'total_floor_space': total_floor_space,
             'success': True
         }
     except Exception as e:
@@ -181,7 +190,8 @@ class AB2022JITModel:
             'max_r_R': np.array([r['max_r_R'] for r in valid]),
             'height_matrix': np.array([r['heights'] for r in valid]),
             'land_rent_matrix': np.array([r['land_rents'] for r in valid]),
-            'floor_rent_matrix': np.array([r['floor_rents'] for r in valid])
+            'floor_rent_matrix': np.array([r['floor_rents'] for r in valid]),
+            'total_floor_space': np.array([r['total_floor_space'] for r in valid])
         }
 
     def __init__(self, params=None):
