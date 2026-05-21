@@ -101,12 +101,55 @@ class MODEL:
             'S_star_C': S_star_C, 'S_star_R': S_star_R,
             'x_0': x_0, 'x_1': x_1, 'x': self.x, 'dist': self.dist
         }
+    def advanced_solver(self, L, y):
+        """Implements Algorithm 4: BETTERSOLVER (Slide 17)"""
+        p = self.params
+        r = self.solver(L, y)
 
-    def wage_solver(self, L, y_guess, method='simple', tol=1e-7, max_iter=500):
-        """Unified wage solver with improved convergence."""
+        # Step 11: Compute implied residential population (N_hat)
+        N_hat = r['L_S_total']
+
+        # Step 12: Compute implied market-clearing wage (y_hat)
+        # Formula: (alpha_C / (1 - alpha_C)) * sum(p_C * S_C) / N_hat
+        mask_C = (r['U'] == 1)
+        wage_bill_integral = np.sum(r['p_C_bid'][mask_C] * r['S_C'][mask_C])
+        
+        if N_hat < 1e-10:
+            y_hat = 0.0
+        else:
+            y_hat = (p['alpha_C'] / (1 - p['alpha_C'])) * wage_bill_integral / N_hat
+
+        return r, N_hat, y_hat
+
+    def find_eq_adv(self, L_guess, y_guess, tol=1e-4, max_iter=2000):
+        """Implements Algorithm: BETTERFINDEQ """
         y = y_guess
+        L = L_guess
+        omega_N = 0.05
+        omega_y = 0.01
+        
+        for _ in range(max_iter):
+            res, N_hat, y_hat = self.advanced_solver(L, y)
+
+            # Convergence check
+            if abs(L/max(N_hat, 1e-10) - 1) < tol and abs(y/max(y_hat, 1e-10) - 1) < tol: 
+                return N_hat, y_hat, res
+            
+            # Update BOTH guesses simultaneously using weighted combination (Slide 19)
+            y = omega_y * y_hat + (1 - omega_y) * y
+            L = omega_N * N_hat + (1 - omega_N) * L
+
+            # Safeguards to prevent catastrophic negative values
+            y = max(1e-5, min(y, 100.0))
+            L = max(1e-5, L)
+
+        print("The algorithm did not converge")
+        return L, y, res
+
+
+    def wage_solver(self, L, y, tol=1e-7, max_iter=500):
+        """Simple wage solver with improved convergence."""
         y_prev = y * 1.05
-        diff_prev = None
 
         for i in range(max_iter):
             res = self.solver(L, y)
@@ -117,20 +160,10 @@ class MODEL:
             if np.abs(diff) / max(1e-6, res['L_S_total']) < tol:
                 return y
             
-            if method == 'simple':
-                y_fac = (res['L_D_total'] / res['L_S_total']) ** 0.01 if res['L_S_total'] > 1e-6 else 1.2
-                y_new = 0.5 * y + 0.5 * y * y_fac
-            else: # Secant-like step
-                if diff_prev is not None and abs(y - y_prev) > 1e-10:
-                    # y_new = y - diff * (y - y_prev) / (diff - diff_prev)
-                    # Use a damped secant to stay stable
-                    step = diff * (y - y_prev) / (diff - diff_prev)
-                    y_new = y - 0.5 * step
-                else:
-                    y_fac = (res['L_D_total'] / res['L_S_total']) ** 0.05 if res['L_S_total'] > 1e-6 else 1.1
-                    y_new = y * y_fac
-                
-            y_prev, diff_prev = y, diff
+            y_fac = (res['L_D_total'] / res['L_S_total']) ** 0.01 if res['L_S_total'] > 1e-6 else 1.2
+            y_new = 0.5 * y + 0.5 * y * y_fac
+            
+            y_prev = y
             y = max(1e-5, min(y_new, 100.0)) # Bounds for stability
 
             if np.abs(y/y_prev - 1) < tol:
@@ -138,17 +171,12 @@ class MODEL:
         return y
 
     def find_eq_simple(self, y_guess, L_guess):
-        return self._find_eq_outer(y_guess, L_guess, wage_method='simple')
+        return self._find_eq_outer(y_guess, L_guess)
 
-    def find_eq_advanced_revised(self, y_guess, L_guess):
-        # The 'advanced' part in the original code was actually just a different wage factor
-        # We can implement the specific integral-based ratio here
-        return self._find_eq_outer(y_guess, L_guess, wage_method='advanced')
-
-    def _find_eq_outer(self, y_guess, L_guess, wage_method='simple', tol=1e-4, max_iter=100):
+    def _find_eq_outer(self, y_guess, L_guess, tol=1e-4, max_iter=100):
         y, L = y_guess, L_guess
         for _ in range(max_iter):
-            y = self.wage_solver(L, y, method=wage_method)
+            y = self.wage_solver(L, y)
             res = self.solver(L, y)
             avg_L_model = 0.5 * (res['L_D_total'] + res['L_S_total'])
 
@@ -194,7 +222,7 @@ class MODEL:
 
 def main():
     """Main execution function - compare all four methods."""
-    model = MODEL(city_size=100_001)
+    model = MODEL(city_size=10_001)
 
     y_guess = 2.5
     L_guess = 1_000_000
@@ -227,27 +255,27 @@ def main():
     print(f"Equilibrium Wage: {y_bisect:.4f}")
     print(f"Equilibrium Employment: {L_bisect:.2f}")
 
-    # 3. Test REVISED ADVANCED method
+    # 3. Test Advanced Revised Method:
     print("\n" + "="*60)
-    print("3. Testing REVISED ADVANCED method: Corrected Integral (Demand/Supply)")
+    print("3. Testing Advanced method: Binary Search")
     print("="*60)
-    start_rev_advanced = time.time()
-    L_rev_adv, y_rev_adv, res_rev_adv = model.find_eq_advanced_revised(y_guess, L_guess)
-    time_rev_advanced = time.time() - start_rev_advanced
+    start_adv = time.time()
+    L_adv, y_adv, res_adv = model.find_eq_adv(L_guess, y_guess)
+    time_adv = time.time() - start_adv
     
-    print(f"Time elapsed: {time_rev_advanced:.3f} seconds")
-    print(f"Labour Demand: {res_rev_adv['L_D_total']:.2f}")
-    print(f"Labour Supply: {res_rev_adv['L_S_total']:.2f}")
-    print(f"Equilibrium Wage: {y_rev_adv:.4f}")
-    print(f"Equilibrium Employment: {L_rev_adv:.2f}")
+    print(f"Time elapsed: {time_adv:.3f} seconds")
+    print(f"Labour Demand: {res_adv['L_D_total']:.2f}")
+    print(f"Labour Supply: {res_adv['L_S_total']:.2f}")
+    print(f"Equilibrium Wage: {y_adv:.4f}")
+    print(f"Equilibrium Employment: {L_adv:.2f}")
 
     # Final Comparison
     print("\n" + '='*60)
     print("PERFORMANCE COMPARISON")
     print("="*60)
-    print(f"Simple time:           {time_simple:.3f} seconds")
-    print(f"Bisection time:        {time_bisection:.3f} seconds")
-    print(f"Revised Advanced time: {time_rev_advanced:.3f} seconds")
+    print(f"Simple time:           {time_simple:.3f} s")
+    print(f"Bisection time:        {time_bisection:.3f} s")
+    print(f"Advanced time:         {time_adv:.3f} s")
 
 if __name__ == "__main__":
     main()
