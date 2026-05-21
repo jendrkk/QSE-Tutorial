@@ -19,7 +19,7 @@ def benchmark():
     warmup_model = MODEL_JIT(city_size=101)
     warmup_model.find_eq_simple_jit(y_guess, L_guess)
     warmup_model.find_eq_bisection_jit()
-    warmup_model.find_eq_advanced_revised(y_guess, L_guess)
+    warmup_model.find_eq_adv_jit(L_guess, y_guess)
     print("Warm-up complete.\n")
 
     print(f"{'City Size':<12} | {'Algorithm':<15} | {'Model Type':<12} | {'Time (s)':<10}")
@@ -33,7 +33,7 @@ def benchmark():
         algorithms = [
             ("Simple", m_py.find_eq_simple, m_jit.find_eq_simple_jit, (y_guess, L_guess)),
             ("Bisection", m_py.find_eq_bisection, m_jit.find_eq_bisection_jit, ()),
-            ("Adv Revised", m_py.find_eq_advanced_revised, m_jit.find_eq_advanced_revised, (y_guess, L_guess))
+            ("Advanced", m_py.find_eq_adv, m_jit.find_eq_adv_jit, (L_guess, y_guess))
         ]
 
         for alg_name, py_func, jit_func, args in algorithms:

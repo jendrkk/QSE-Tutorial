@@ -118,25 +118,18 @@ def wage_solver_jit(params, x, dist, precalc, L, y, method, buffers, tol=1e-7, m
     if method == 2: # Bisection
         return wage_bisection_jit(params, x, dist, precalc, L, 0.1, 50.0, buffers, tol)
     
-    y_prev, diff_prev, has_prev = y * 1.05, 0.0, False
+    y_prev = y * 1.05
     for _ in range(max_iter):
         ld, ls, x0, x1 = solver_jit(params, x, dist, precalc, L, y, *buffers)
         if ls < 1e-6 and ld < 1e-6: return y
         diff = ld - ls
         if np.abs(diff) / max(1e-6, ls) < tol: return y
         
-        if method == 0: # Simple
-            y_fac = (ld / ls) ** 0.01 if ls > 1e-6 else 1.2
-            y_new = 0.5 * y + 0.5 * y * y_fac
-        else: # Secant
-            if has_prev and np.abs(y - y_prev) > 1e-10 and np.abs(diff - diff_prev) > 1e-12:
-                step = diff * (y - y_prev) / (diff - diff_prev)
-                y_new = y - 0.5 * step
-            else:
-                y_fac = (ld / ls) ** 0.05 if ls > 1e-6 else 1.1
-                y_new = y * y_fac
+        # Simple method
+        y_fac = (ld / ls) ** 0.01 if ls > 1e-6 else 1.2
+        y_new = 0.5 * y + 0.5 * y * y_fac
         
-        y_prev, diff_prev, has_prev = y, diff, True
+        y_prev = y
         y = max(1e-5, min(y_new, 100.0))
         if np.abs(y/y_prev - 1.0) < tol: return y
     return y
@@ -152,6 +145,36 @@ def find_eq_jit_npy(params, x, dist, precalc, y_guess, L_guess, wage_method, buf
         if np.abs(L / avg_L - 1.0) < 1e-4: return L, y, ld, ls, x0, x1
         L = 0.5 * L + 0.5 * avg_L
     ld, ls, x0, x1 = solver_jit(params, x, dist, precalc, L, y, *buffers)
+    return L, y, ld, ls, x0, x1
+
+@njit
+def find_eq_adv_jit_npy(params, x, dist, precalc, L_guess, y_guess, buffers, tol=1e-4, max_iter=2000):
+    alpha_C = params[0]
+    y, L = y_guess, L_guess
+    omega_N, omega_y = 0.05, 0.01
+    
+    ld, ls, x0, x1 = 0.0, 0.0, 0.0, 0.0
+    
+    for _ in range(max_iter):
+        ld, ls, x0, x1 = solver_jit(params, x, dist, precalc, L, y, *buffers)
+        N_hat = ls
+        
+        U, S_C, p_C_bid = buffers[0], buffers[1], buffers[3]
+        wage_bill_integral = 0.0
+        for i in range(len(U)):
+            if U[i] == 1:
+                wage_bill_integral += p_C_bid[i] * S_C[i]
+        
+        y_hat = (alpha_C / (1.0 - alpha_C)) * wage_bill_integral / N_hat if N_hat > 1e-10 else 0.0
+            
+        if np.abs(L/max(N_hat, 1e-10) - 1.0) < tol and np.abs(y/max(y_hat, 1e-10) - 1.0) < tol:
+            return N_hat, y_hat, ld, ls, x0, x1
+            
+        y = omega_y * y_hat + (1.0 - omega_y) * y
+        L = omega_N * N_hat + (1.0 - omega_N) * L
+        y = max(1e-5, min(y, 100.0))
+        L = max(1e-5, L)
+        
     return L, y, ld, ls, x0, x1
 
 class MODEL_JIT:
@@ -219,8 +242,8 @@ class MODEL_JIT:
         L, y, ld, ls, x0, x1 = find_eq_jit_npy(self.params_tuple, self.x, self.dist, self._precalc, y_guess, L_guess, 0, self._buffers)
         return L, y, self._unpack(ld, ls, x0, x1)
 
-    def find_eq_advanced_revised(self, y_guess, L_guess):
-        L, y, ld, ls, x0, x1 = find_eq_jit_npy(self.params_tuple, self.x, self.dist, self._precalc, y_guess, L_guess, 1, self._buffers)
+    def find_eq_adv_jit(self, L_guess, y_guess):
+        L, y, ld, ls, x0, x1 = find_eq_adv_jit_npy(self.params_tuple, self.x, self.dist, self._precalc, L_guess, y_guess, self._buffers)
         return L, y, self._unpack(ld, ls, x0, x1)
 
     def find_eq_bisection_jit(self, L_min=None, L_max=None, tol=1e-4, max_iter=100):
@@ -233,9 +256,15 @@ class MODEL_JIT:
 def main():
     model = MODEL_JIT(city_size=100_001)
     model.find_eq_simple_jit(2.5, 1_000_000) # Warmup
+    model.find_eq_adv_jit(1_000_000, 2.5) # Warmup
+    
     start = time.time()
-    L, y, res = model.find_eq_advanced_revised(2.5, 1_000_000)
-    print(f"JIT Optimized (Extreme): {time.time()-start:.4f}s, L={L:.2f}, y={y:.4f}")
+    L, y, res = model.find_eq_simple_jit(2.5, 1_000_000)
+    print(f"JIT Optimized (Simple): {time.time()-start:.4f}s, L={L:.2f}, y={y:.4f}")
+
+    start = time.time()
+    L, y, res = model.find_eq_adv_jit(1_000_000, 2.5)
+    print(f"JIT Optimized (Advanced): {time.time()-start:.4f}s, L={L:.2f}, y={y:.4f}")
 
 if __name__ == '__main__':
     main()
