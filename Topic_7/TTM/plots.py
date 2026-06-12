@@ -14,8 +14,8 @@ from scipy.spatial.distance import cdist
 # ---------------------------------------------------------------------------
 SCRIPT_DIR    = Path(__file__).resolve().parent
 REPO_ROOT     = SCRIPT_DIR.parent
-TRANSPORT_DIR = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006"
-ARSW_DIR      = REPO_ROOT / "ARSW2015" / "ARSW2015-toolkit" / "shapefile"
+TRANSPORT_DIR = REPO_ROOT.parent / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006"
+ARSW_DIR      = REPO_ROOT.parent / "ARSW2015" / "ARSW2015-toolkit" / "shapefile"
 
 # Ensure outputs are read from / written to the Topic_7 folder
 os.chdir(SCRIPT_DIR)

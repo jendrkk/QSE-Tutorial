@@ -7,67 +7,29 @@ QSE-Tutorial (Humboldt University Berlin, Summer 2026). Implements ARSW (2015) "
 
 ## Current State
 
-`task_1c.ipynb` already runs `run_calcal_TD` with the user TTM and saves results to `calcal_1c_results.npz` (keys: `A06`, `B06`, `wage06`, `CMA06`, `HRS06`, `vv06`, `V06`, `L06`, `theta06`, `modbzk06`, `fwestr`, `obsvar06`, `nobs06=12309`, `kappa`, `epsilon`).
+`task_1c.ipynb` (already fixed) uses:
+- `gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)` as background layer
+- Streets overlay: `streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)`
+- `STREETS_SHP = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006" / "Streets.shp"`
 
-`run_calcal_TD` with `user_ttm_path=None` falls back to the embedded ARSW `tt06` — this is the original matrix to compare against.
+`run_calcal_TD` with `user_ttm_path=None` falls back to the embedded ARSW `tt06` — this is the original matrix to compare against. Results from task_1c are in `calcal_1c_results.npz`.
 
 **Relevant files:**
-- `/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_7/task_1c.ipynb` — template for cell style, helper functions, plotting conventions
+- `/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_7/task_1c.ipynb` — reference for plot pattern (background layer + streets)
 - `/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_7/arsw_python/recover_fundamentals.py` — `run_calcal_TD`, `save_results`
 - `/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/ARSW2015/ARSW2015-toolkit/matlab/data/output/calcal_1c_results.npz` — saved user TTM results (12 309 blocks)
 
-**Existing `run_calcal_TD` call pattern (task_1c Cell 4):**
+**CRITICAL plot pattern (from task_1c — must be replicated in every subplot):**
 ```python
-results_1c = run_calcal_TD(
-    mat_path_TD=MAT_PATH_TD,
-    user_ttm_path=TTM_CLEAN_PATH,   # .parquet
-    user_ttm_var="tt06",
-    epsilon=EPSILON_HAT,
-    kappaeps=KAPPAEPS,
-    alpha=ALPHA,
-    beta=BETA,
-    verbose=True,
-)
+# 1. Background: render all blocks as gray so NaN blocks remain visible
+gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)
+# 2. Data layer on top
+gdf_plot.plot(column=col, ax=ax, cmap=..., missing_kwds={"color": "#d0d0d0", ...}, zorder=2)
+# 3. Streets overlay
+if streets_gdf is not None:
+    streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)
 ```
-
-**Existing `_clean_shapefile` helper (task_1c Cell 7 — must be reproduced verbatim):**
-```python
-def _clean_shapefile(gdf: gpd.GeoDataFrame, target_crs: int = 25833) -> gpd.GeoDataFrame:
-    def _valid_coords(geom):
-        try:
-            b = geom.bounds
-            return len(b) == 4 and not (np.any(np.isnan(b)) or np.any(np.isinf(b)))
-        except Exception:
-            return False
-    gdf = gdf[gdf.geometry.notnull() & ~gdf.geometry.is_empty].reset_index(drop=True)
-    gdf = gdf[gdf.geometry.apply(_valid_coords)].reset_index(drop=True)
-    gdf["geometry"] = gdf.geometry.make_valid()
-    gdf = gdf.to_crs(epsg=target_crs)
-    gdf = gdf[gdf.geometry.notnull() & ~gdf.geometry.is_empty].reset_index(drop=True)
-    gdf = gdf[gdf.geometry.apply(_valid_coords)].reset_index(drop=True)
-    return gdf
-```
-
-**Existing plot rcParams block (task_1c Cell 0 — reproduce verbatim):**
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-sns.set_style("whitegrid")
-plt.rcParams.update({
-    'font.size': 16.0,
-    'font.family': 'serif',
-    'font.serif': 'Palatino',
-    'axes.titlesize': 'medium',
-    'figure.titlesize': 'large',
-    'legend.fontsize': 'medium',
-    'figure.dpi': 100,
-    'savefig.dpi': 300,
-    'figure.autolayout': True,
-    'text.usetex': True,
-    'text.latex.preamble': r"\usepackage{amsmath}\usepackage{amssymb}\usepackage{siunitx}[=v2]",
-})
-```
+Without step 1 (background), blocks with NaN values are either invisible (matching white background) or silently dropped by geopandas. This is the root cause of the "missing blocks" issue in earlier map versions.
 
 ---
 
@@ -75,14 +37,15 @@ plt.rcParams.update({
 
 Create `task_1d.ipynb` in the `Topic_7/` directory. The notebook:
 
-1. Loads user TTM fundamentals from `calcal_1c_results.npz` (already saved by task_1c).
-2. Runs (or loads from cache) the calibration pipeline with the original ARSW `tt06`; caches result to `calcal_1d_orig_results.npz` so the expensive solver only runs once.
-3. Builds a cleaned Berlin GeoDataFrame with all six map columns assigned positionally (same ordering as `nobs06`).
-4. Produces one `(3 × 2)` matplotlib figure:
-   - **Row 0** (Panel 1): $\log\tilde{A}_j$ — shared `vmin/vmax` across left (original) and right (user)
+1. Loads user TTM fundamentals from `calcal_1c_results.npz`.
+2. Runs (or loads from cache) the calibration pipeline with original ARSW `tt06`; caches to `calcal_1d_orig_results.npz`.
+3. Loads streets shapefile for overlay.
+4. Builds a cleaned Berlin GeoDataFrame with all six map columns assigned positionally.
+5. Produces one `(3 × 2)` matplotlib figure using the **background + streets** pattern from task_1c:
+   - **Row 0** (Panel 1): $\log\tilde{A}_j$ — shared `vmin/vmax` across left and right
    - **Row 1** (Panel 2): $\log\tilde{B}_i$ — shared `vmin/vmax` across left and right
    - **Row 2** (Panel 3): Differences $\Delta\log\tilde{A}_j$ and $\Delta\log\tilde{B}_i$ (User − Original) on `RdBu_r` diverging colormap, symmetric about zero
-5. Saves to `plots/task_1d_fundamentals_comparison.png` at 300 dpi.
+6. Saves to `plots/task_1d_fundamentals_comparison.png` at 300 dpi.
 
 ---
 
@@ -91,8 +54,6 @@ Create `task_1d.ipynb` in the `Topic_7/` directory. The notebook:
 ### Task 1.1 — Create `task_1d.ipynb`
 **File:** `/Users/jedrek/Documents/Studium Volkswirschaftslehre/4. Semester/Quantitive Spatial Economics/QSE-Tutorial/Topic_7/task_1d.ipynb`
 **Action:** `Create`
-
-Create a Jupyter notebook (`.ipynb`) with the following cells in order. All cell sources are Python code unless marked `[MARKDOWN]`.
 
 ---
 
@@ -147,8 +108,9 @@ TTM_CLEAN_PATH = Path.cwd() / "TTM" / "tt06_user_preprocessed.parquet"
 USER_NPZ = ARSW_TOOLKIT / "matlab" / "data" / "output" / "calcal_1c_results.npz"
 ORIG_NPZ = ARSW_TOOLKIT / "matlab" / "data" / "output" / "calcal_1d_orig_results.npz"
 
-# ── Shapefile ─────────────────────────────────────────────────────────────────
+# ── Shapefiles ────────────────────────────────────────────────────────────────
 BLOCKS_SHP_FULL = ARSW_TOOLKIT / "shapefile" / "Berlin4matlab.shp"
+STREETS_SHP     = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006" / "Streets.shp"
 
 # ── Parameters — must match task_1c exactly ───────────────────────────────────
 EPSILON_HAT = 6.83
@@ -157,6 +119,7 @@ ALPHA       = 0.80
 BETA        = 0.75
 
 print(f"Parameters: ε = {EPSILON_HAT},  κε = {KAPPAEPS},  κ = {KAPPAEPS/EPSILON_HAT:.6f}")
+print(f"Streets.shp present: {STREETS_SHP.exists()}")
 ```
 
 ---
@@ -206,7 +169,7 @@ with np.errstate(divide='ignore', invalid='ignore'):
 
 print(f"User TTM results loaded: nobs06 = {NOBS06}")
 print(f"  A06: {(A_user > 0).sum()} positive blocks,  "
-      f"geomean = {np.exp(np.nanmean(logA_user)):.4f}  (≈ 1.0 by normalisation)")
+      f"geomean = {np.exp(np.nanmean(logA_user)):.4f}")
 print(f"  B06: {(B_user > 0).sum()} positive blocks")
 ```
 
@@ -225,10 +188,10 @@ else:
             "Download from: https://box.hu-berlin.de/f/54d2f718ec8644e5888f/?dl=1\n"
             f"Save to: {MAT_PATH_TD.parent}"
         )
-    print("Running calibration with original ARSW tt06 (≈ 5–10 min) ...")
+    print("Running calibration with original ARSW tt06 (approx 5-10 min) ...")
     results_orig = run_calcal_TD(
         mat_path_TD=MAT_PATH_TD,
-        user_ttm_path=None,          # ← None → uses embedded tt06 from prepdata_big_TD.mat
+        user_ttm_path=None,          # <- None uses embedded tt06 from prepdata_big_TD.mat
         epsilon=EPSILON_HAT,
         kappaeps=KAPPAEPS,
         alpha=ALPHA,
@@ -261,7 +224,7 @@ if n_orig != NOBS06:
 
 ---
 
-#### Cell 5 — Build GeoDataFrame and compute differences
+#### Cell 5 — Build GeoDataFrame, load streets, compute differences
 ```python
 def _clean_shapefile(gdf: gpd.GeoDataFrame, target_crs: int = 25833) -> gpd.GeoDataFrame:
     """
@@ -290,10 +253,18 @@ n_shp = len(gdf_berlin)
 if n_shp != NOBS06:
     raise ValueError(
         f"Shapefile has {n_shp} blocks but nobs06 = {NOBS06}. "
-        "Geometry cleaning mismatch — this notebook must use the same shapefile "
-        "and cleaning procedure as task_1c.ipynb."
+        "Geometry cleaning mismatch."
     )
-print(f"  Blocks: {n_shp}  ✓  (matches nobs06)")
+print(f"  Blocks: {n_shp}  (matches nobs06)")
+
+# ── Load streets for overlay ───────────────────────────────────────────────────
+streets_gdf = None
+if STREETS_SHP.exists():
+    print("Loading Streets.shp for overlay ...")
+    streets_gdf = gpd.read_file(str(STREETS_SHP)).to_crs(epsg=25833)
+    print(f"  Street segments: {len(streets_gdf)}")
+else:
+    print(f"Streets.shp not found — overlay will be skipped")
 
 # ── Assign result vectors by positional index ─────────────────────────────────
 gdf_berlin["logA_orig"] = logA_orig
@@ -301,7 +272,7 @@ gdf_berlin["logA_user"] = logA_user
 gdf_berlin["logB_orig"] = logB_orig
 gdf_berlin["logB_user"] = logB_user
 
-# ── Differences: user − original (NaN where either is non-positive) ───────────
+# ── Differences: user minus original (NaN where either is non-positive) ───────
 both_A = (A_orig > 0) & (A_user > 0)
 both_B = (B_orig > 0) & (B_user > 0)
 
@@ -313,8 +284,8 @@ gdf_berlin["dlogB"] = dlogB
 
 # ── Diagnostics ───────────────────────────────────────────────────────────────
 for name, arr, n_valid in [
-    ("Δ log Ã", dlogA, both_A.sum()),
-    ("Δ log B̃", dlogB, both_B.sum()),
+    ("Delta log A", dlogA, both_A.sum()),
+    ("Delta log B", dlogB, both_B.sum()),
 ]:
     finite = arr[~np.isnan(arr)]
     print(f"\n{name}: {n_valid} blocks with valid diff")
@@ -324,83 +295,94 @@ for name, arr, n_valid in [
 
 ---
 
-#### Cell 6 — Three-panel comparison figure
+#### Cell 6 — Three-panel comparison figure (3 rows x 2 cols)
+
+**CRITICAL**: Every subplot must follow the exact 3-step rendering pattern from task_1c Cell 7:
+1. `gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)` — background layer (makes all 12309 blocks visible even when data is NaN)
+2. `gdf_berlin.plot(column=col, ax=ax, ..., missing_kwds={"color": "#d0d0d0", ...}, zorder=2)` — data layer
+3. `if streets_gdf is not None: streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)` — streets overlay
+
 ```python
 # ── Shared color scales ───────────────────────────────────────────────────────
-# Rows 0–1: same vmin/vmax within each panel so left/right are directly comparable.
+# Panels 0-1: shared vmin/vmax computed across BOTH original and user arrays.
 vmin_A = float(np.nanmin([logA_orig, logA_user]))
 vmax_A = float(np.nanmax([logA_orig, logA_user]))
 
 vmin_B = float(np.nanmin([logB_orig, logB_user]))
 vmax_B = float(np.nanmax([logB_orig, logB_user]))
 
-# Row 2: symmetric diverging scale about 0
+# Panel 2: symmetric diverging scale about 0
 _dA_fin = dlogA[~np.isnan(dlogA)]
 _dB_fin = dlogB[~np.isnan(dlogB)]
 vabs_A = float(np.abs(_dA_fin).max()) if len(_dA_fin) > 0 else 0.1
 vabs_B = float(np.abs(_dB_fin).max()) if len(_dB_fin) > 0 else 0.1
 
 # ── Figure ────────────────────────────────────────────────────────────────────
+MISSING = {"color": "#d0d0d0", "label": "No data"}
 fig, axes = plt.subplots(3, 2, figsize=(18, 24))
 
-MISSING = {"color": "#d0d0d0", "label": "No data"}
-
-# ── Panel 1 (row 0): log Ã ────────────────────────────────────────────────────
-panel1_specs = [
-    ("logA_orig", r"Original ARSW TTM\\ $\log\tilde{A}_j$"),
-    ("logA_user", r"User TTM\\ $\log\tilde{A}_j$"),
-]
-for c, (col, title) in enumerate(panel1_specs):
+# ── Row 0: log A ──────────────────────────────────────────────────────────────
+for c, (col, title) in enumerate([
+    ("logA_orig", r"Original ARSW TTM --- $\log\tilde{A}_j$"),
+    ("logA_user", r"User TTM --- $\log\tilde{A}_j$"),
+]):
     ax = axes[0, c]
+    gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)
     gdf_berlin.plot(
-        column=col, ax=ax,
-        cmap="YlOrRd", vmin=vmin_A, vmax=vmax_A,
+        column=col, ax=ax, cmap="YlOrRd", vmin=vmin_A, vmax=vmax_A,
         legend=True, missing_kwds=MISSING,
         legend_kwds={"label": r"$\log\tilde{A}$", "shrink": 0.70,
                      "orientation": "vertical", "pad": 0.02},
+        zorder=2,
     )
+    if streets_gdf is not None:
+        streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)
     ax.set_title(title, pad=8, fontsize=12)
     ax.set_axis_off()
 
-# ── Panel 2 (row 1): log B̃ ────────────────────────────────────────────────────
-panel2_specs = [
-    ("logB_orig", r"Original ARSW TTM\\ $\log\tilde{B}_i$"),
-    ("logB_user", r"User TTM\\ $\log\tilde{B}_i$"),
-]
-for c, (col, title) in enumerate(panel2_specs):
+# ── Row 1: log B ──────────────────────────────────────────────────────────────
+for c, (col, title) in enumerate([
+    ("logB_orig", r"Original ARSW TTM --- $\log\tilde{B}_i$"),
+    ("logB_user", r"User TTM --- $\log\tilde{B}_i$"),
+]):
     ax = axes[1, c]
+    gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)
     gdf_berlin.plot(
-        column=col, ax=ax,
-        cmap="YlOrRd", vmin=vmin_B, vmax=vmax_B,
+        column=col, ax=ax, cmap="YlOrRd", vmin=vmin_B, vmax=vmax_B,
         legend=True, missing_kwds=MISSING,
         legend_kwds={"label": r"$\log\tilde{B}$", "shrink": 0.70,
                      "orientation": "vertical", "pad": 0.02},
+        zorder=2,
     )
+    if streets_gdf is not None:
+        streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)
     ax.set_title(title, pad=8, fontsize=12)
     ax.set_axis_off()
 
-# ── Panel 3 (row 2): differences ─────────────────────────────────────────────
-panel3_specs = [
+# ── Row 2: differences ────────────────────────────────────────────────────────
+for c, (col, vabs, title, cbar_label) in enumerate([
     ("dlogA", vabs_A,
      r"$\Delta\log\tilde{A}_j = \log\tilde{A}^{\rm user}_j - \log\tilde{A}^{\rm ARSW}_j$",
      r"$\Delta\log\tilde{A}$"),
     ("dlogB", vabs_B,
      r"$\Delta\log\tilde{B}_i = \log\tilde{B}^{\rm user}_i - \log\tilde{B}^{\rm ARSW}_i$",
      r"$\Delta\log\tilde{B}$"),
-]
-for c, (col, vabs, title, cbar_label) in enumerate(panel3_specs):
+]):
     ax = axes[2, c]
+    gdf_berlin.plot(ax=ax, color="#d0d0d0", edgecolor="none", zorder=1)
     gdf_berlin.plot(
-        column=col, ax=ax,
-        cmap="RdBu_r", vmin=-vabs, vmax=vabs,
+        column=col, ax=ax, cmap="RdBu_r", vmin=-vabs, vmax=vabs,
         legend=True, missing_kwds=MISSING,
         legend_kwds={"label": cbar_label, "shrink": 0.70,
                      "orientation": "vertical", "pad": 0.02},
+        zorder=2,
     )
+    if streets_gdf is not None:
+        streets_gdf.plot(ax=ax, color="white", linewidth=0.15, alpha=0.4, zorder=3)
     ax.set_title(title, pad=8, fontsize=11)
     ax.set_axis_off()
 
-# ── Panel row labels (left margin) ───────────────────────────────────────────
+# ── Row labels and suptitle ───────────────────────────────────────────────────
 row_labels = [
     r"\textbf{Panel 1:} Adjusted Productivity $\log\tilde{A}_j$",
     r"\textbf{Panel 2:} Adjusted Amenity $\log\tilde{B}_i$",
@@ -409,7 +391,6 @@ row_labels = [
 for r, label in enumerate(row_labels):
     axes[r, 0].set_ylabel(label, fontsize=11, labelpad=8)
 
-# ── Suptitle ──────────────────────────────────────────────────────────────────
 plt.suptitle(
     r"Task 1(d): Fundamentals comparison --- Original ARSW TTM vs User-Computed TTM"
     "\n"
@@ -432,7 +413,7 @@ print(f"Saved: {save_path}")
 #### Cell 7 — Summary
 ```python
 print("=" * 72)
-print("  Task 1(d) — Summary: Fundamentals Comparison")
+print("  Task 1(d) -- Summary: Fundamentals Comparison")
 print("=" * 72)
 print()
 print(f"  Parameters:  epsilon={EPSILON_HAT},  kappa={KAPPAEPS/EPSILON_HAT:.6f},  "
@@ -445,23 +426,22 @@ print(f"    Original TTM : {(A_orig > 0).sum():5d}  geomean = "
 print(f"    User TTM     : {(A_user > 0).sum():5d}  geomean = "
       f"{np.exp(np.nanmean(logA_user)):.4f}")
 _dA = dlogA[~np.isnan(dlogA)]
-print(f"    Delta log A  : mean = {_dA.mean():.4f},  std = {_dA.std():.4f},  "
-      f"p5 = {np.percentile(_dA, 5):.3f},  p95 = {np.percentile(_dA, 95):.3f}")
+print(f"    Delta log A  : mean={_dA.mean():.4f}, std={_dA.std():.4f}, "
+      f"p5={np.percentile(_dA, 5):.3f}, p95={np.percentile(_dA, 95):.3f}")
 print()
 print("  Amenity B (positive blocks):")
 print(f"    Original TTM : {(B_orig > 0).sum():5d}")
 print(f"    User TTM     : {(B_user > 0).sum():5d}")
 _dB = dlogB[~np.isnan(dlogB)]
-print(f"    Delta log B  : mean = {_dB.mean():.4f},  std = {_dB.std():.4f},  "
-      f"p5 = {np.percentile(_dB, 5):.3f},  p95 = {np.percentile(_dB, 95):.3f}")
+print(f"    Delta log B  : mean={_dB.mean():.4f}, std={_dB.std():.4f}, "
+      f"p5={np.percentile(_dB, 5):.3f}, p95={np.percentile(_dB, 95):.3f}")
 print()
 print(f"  Original results cached : {ORIG_NPZ.name}")
 print(f"  Figure saved            : plots/task_1d_fundamentals_comparison.png")
 print()
 print("  Interpretation:")
 print("    Delta log A > 0 at j  =>  User TTM implies higher adjusted productivity")
-print("      at block j. Consistent with user TTM overestimating commuting times TO j")
-print("      (less wage premium gets absorbed by productivity once commuting costs fall).")
+print("      at block j. Consistent with user TTM overestimating commuting times TO j.")
 print()
 print("    Delta log B > 0 at i  =>  User TTM implies higher adjusted amenity at i.")
 print("      Follows from CMA_i being lower in user TTM (longer average travel times")
@@ -473,18 +453,33 @@ print("=" * 72)
 ---
 
 ## Constraints
-- **Do not modify:** `task_1c.ipynb`, `arsw_python/recover_fundamentals.py`, `arsw_python/data_loaders.py`, `arsw_python/calibration.py`, `arsw_python/solvers.py`
-- **Preserve interfaces:** `run_calcal_TD(user_ttm_path=None)` must be called exactly as shown — no extra arguments beyond those listed
-- **`_clean_shapefile` must be byte-for-byte identical** to the version in `task_1c.ipynb` Cell 7; any deviation in the cleaning steps produces a positional misalignment between the shapefile rows and the result arrays
-- **Dependency order within this step:** Cell 1 before Cell 3; Cell 3 before Cell 4; Cell 4 before Cell 5; Cell 5 before Cell 6; Cell 6 before Cell 7
-- **Cache path for original results:** `ARSW_TOOLKIT / "matlab" / "data" / "output" / "calcal_1d_orig_results.npz"` — must be the same key used in Cell 4 for both `save_results` and `np.load`
-- **Figure panels 0 and 1:** `vmin/vmax` must be computed as `nanmin/nanmax` across *both* arrays (original and user), not per-column; this is the critical property enabling visual comparison
+- **Do not modify:** `task_1c.ipynb`, any `arsw_python/` module
+- **Every subplot in Cell 6 must use the 3-step pattern**: background → data → streets. This is non-negotiable — it is what makes all 12309 blocks visible regardless of geopandas NaN-handling behavior
+- **`_clean_shapefile` must be byte-for-byte identical** to task_1c Cell 7
+- **Dependency order:** Cell 1 → Cell 3 → Cell 4 → Cell 5 → Cell 6 → Cell 7
+- **Cache gate in Cell 4:** `if ORIG_NPZ.exists(): load else: run + save`
 
 ## Acceptance Criteria
 - [ ] `task_1d.ipynb` exists at `.../Topic_7/task_1d.ipynb`
-- [ ] All cells run top-to-bottom without error (assumes `prepdata_big_TD.mat` present and `calcal_1c_results.npz` present)
-- [ ] Cell 4 log contains `">>>> Using embedded tt06 from prepdata_big_TD.mat <<<<"` confirming original matrix path
-- [ ] `calcal_1d_orig_results.npz` is written on first run; subsequent runs load it without re-running the solver
-- [ ] Cell 6 produces a `plt.subplots(3, 2)` figure; panels 0–1 use `cmap="YlOrRd"` with shared `vmin_A/vmax_A` and `vmin_B/vmax_B` respectively; panel 2 uses `cmap="RdBu_r"` with symmetric `vmin=-vabs, vmax=vabs`
-- [ ] `plots/task_1d_fundamentals_comparison.png` exists after Cell 6 executes
-- [ ] Cell 7 prints `Delta log A` and `Delta log B` statistics (mean, std, p5, p95) without error
+- [ ] All cells run top-to-bottom without error
+- [ ] Cell 4 log contains `">>>> Using embedded tt06 from prepdata_big_TD.mat <<<<<"` confirming original matrix path
+- [ ] `calcal_1d_orig_results.npz` is written on first run; subsequent runs load it
+- [ ] **Every one of the 6 subplots in Cell 6 calls `gdf_berlin.plot(ax=ax, color="#d0d0d0", ...)` FIRST before the data plot** — this is the critical fix preventing sparse maps
+- [ ] Cell 6 panel 0–1 use `cmap="YlOrRd"` with shared bounds; panel 2 uses `cmap="RdBu_r"` symmetric about 0
+- [ ] `plots/task_1d_fundamentals_comparison.png` saved at 300 dpi
+- [ ] Cell 7 prints Delta statistics without error
+
+---
+
+## Execution Order
+
+**Run:** Step 1 (standalone)
+
+| Step | Title | Depends on | Rationale |
+|------|-------|-----------|-----------|
+| 1 | Task 1(d) Comparison Maps | task_1c complete | Reads `calcal_1c_results.npz`; runs original calibration; produces 3×2 comparison figure |
+
+**Dependency graph:**
+```
+[task_1c — already complete] ──► [Step 1: task_1d.ipynb]
+```

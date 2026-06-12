@@ -19,7 +19,7 @@ from pathlib import Path
 # REPO_ROOT   -> .../QSE-Tutorial/
 # ---------------------------------------------------------------------------
 SCRIPT_DIR     = Path(__file__).resolve().parent
-REPO_ROOT      = SCRIPT_DIR.parent
+REPO_ROOT      = SCRIPT_DIR.parent.parent
 TRANSPORT_DIR  = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006"
 ARSW_DIR       = REPO_ROOT / "ARSW2015" / "ARSW2015-toolkit" / "shapefile"
 
@@ -50,8 +50,8 @@ street_nodes['node_id'] = [f"street_node_{i}" for i in range(len(street_nodes))]
 # ==========================================
 print("Processing and snapping block centroids...")
 # Load raw shapefile in original CRS
+#blocks_gdf = gpd.read_file(TRANSPORT_DIR.parent / "Berlin4matlab-ETRS.shp")
 blocks_gdf = gpd.read_file(ARSW_DIR / "Berlin4matlab.shp")
-
 # Clean null or empty geometries in original CRS first
 blocks_gdf = blocks_gdf[blocks_gdf.geometry.notnull() & ~blocks_gdf.geometry.is_empty].reset_index(drop=True)
 
