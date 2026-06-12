@@ -3,12 +3,28 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io as sio
+import os
+from pathlib import Path
+from scipy.spatial.distance import cdist
+
+# ---------------------------------------------------------------------------
+# Path resolution: works regardless of the working directory at invocation.
+# SCRIPT_DIR  -> .../QSE-Tutorial/Topic_7/
+# REPO_ROOT   -> .../QSE-Tutorial/
+# ---------------------------------------------------------------------------
+SCRIPT_DIR    = Path(__file__).resolve().parent
+REPO_ROOT     = SCRIPT_DIR.parent
+TRANSPORT_DIR = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006"
+ARSW_DIR      = REPO_ROOT / "ARSW2015" / "ARSW2015-toolkit" / "shapefile"
+
+# Ensure outputs are read from / written to the Topic_7 folder
+os.chdir(SCRIPT_DIR)
 
 # Configuration
-METRIC_CRS = "EPSG:25833"
-BLOCKS_SHP = "ARSW2015/ARSW2015-toolkit/shapefile/Berlin4matlab.shp"
-STREETS_SHP = "TransportNetworkParts2006/Streets.shp"
-MAT_FILE = "travel_time_matrices.mat"
+METRIC_CRS   = "EPSG:25833"
+BLOCKS_SHP   = ARSW_DIR      / "Berlin4matlab.shp"
+STREETS_SHP  = TRANSPORT_DIR / "Streets.shp"
+MAT_FILE     = SCRIPT_DIR    / "travel_time_matrices.mat"
 
 def load_geometries():
     print("Loading geometries...")
@@ -35,8 +51,8 @@ def load_geometries():
     
     return blocks_gdf, streets
 
-PARQUET_FULL = "sample_travel_time_matrix.parquet"
-PARQUET_SIMPLE = "simplified_travel_time_matrix.parquet"
+PARQUET_FULL   = SCRIPT_DIR / "sample_travel_time_matrix.parquet"
+PARQUET_SIMPLE = SCRIPT_DIR / "simplified_travel_time_matrix.parquet"
 
 def load_matrices():
     print("Loading matrices...")
@@ -197,8 +213,6 @@ def plot_accessibility_scatter(matrices):
     plt.grid(True, linestyle='--', alpha=0.5); plt.legend(); plt.tight_layout()
     plt.savefig('accessibility_comparison_scatter.png', dpi=300); plt.close()
     print("Saved 'accessibility_comparison_scatter.png'")
-
-from scipy.spatial.distance import cdist
 
 def plot_speed_scatter(matrices, blocks_gdf):
     print("Calculating travel speeds for comparison plot...")

@@ -10,6 +10,21 @@ import scipy.io as sio
 import time
 import igraph as ig
 from joblib import Parallel, delayed
+import os
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Path resolution: works regardless of the working directory at invocation.
+# SCRIPT_DIR  -> .../QSE-Tutorial/Topic_7/
+# REPO_ROOT   -> .../QSE-Tutorial/
+# ---------------------------------------------------------------------------
+SCRIPT_DIR     = Path(__file__).resolve().parent
+REPO_ROOT      = SCRIPT_DIR.parent
+TRANSPORT_DIR  = REPO_ROOT / "Data" / "Shapefiles-2022" / "Berlin" / "TransportNetworkParts2006"
+ARSW_DIR       = REPO_ROOT / "ARSW2015" / "ARSW2015-toolkit" / "shapefile"
+
+# Ensure outputs land next to this script
+os.chdir(SCRIPT_DIR)
 
 # Ensure you are using the correct metric CRS for Berlin (UTM Zone 33N is EPSG:25833)
 METRIC_CRS = "EPSG:25833"
@@ -19,7 +34,7 @@ WALKING_SPEED_M_MIN = 5000 / 60  # 5 km/h converted to meters per minute (83.33 
 # 1. LOAD AND PROJECT THE STREETS & EXTRACT NODES
 # ==========================================
 print("Loading and projecting street network...")
-streets = gpd.read_file("TransportNetworkParts2006/Streets.shp").to_crs(epsg=25833).reset_index(drop=True)
+streets = gpd.read_file(TRANSPORT_DIR / "Streets.shp").to_crs(epsg=25833).reset_index(drop=True)
 
 # Extract unique street nodes (junctions)
 start_points = streets.geometry.apply(lambda line: Point(line.coords[0]))
@@ -35,7 +50,7 @@ street_nodes['node_id'] = [f"street_node_{i}" for i in range(len(street_nodes))]
 # ==========================================
 print("Processing and snapping block centroids...")
 # Load raw shapefile in original CRS
-blocks_gdf = gpd.read_file("ARSW2015/ARSW2015-toolkit/shapefile/Berlin4matlab.shp")
+blocks_gdf = gpd.read_file(ARSW_DIR / "Berlin4matlab.shp")
 
 # Clean null or empty geometries in original CRS first
 blocks_gdf = blocks_gdf[blocks_gdf.geometry.notnull() & ~blocks_gdf.geometry.is_empty].reset_index(drop=True)
@@ -92,17 +107,17 @@ print("Processing and snapping transit entrances and platform stops...")
 
 # Define filepaths for both Entrances and Stops/Platforms
 entrances_files = {
-    "Bus": "TransportNetworkParts2006/BusEntrance.shp",
-    "Tram": "TransportNetworkParts2006/TramEntrance.shp",
-    "SBahn": "TransportNetworkParts2006/SBahnEntrance.shp",
-    "UBahn": "TransportNetworkParts2006/UBahnEntrance.shp"
+    "Bus":   TRANSPORT_DIR / "BusEntrance.shp",
+    "Tram":  TRANSPORT_DIR / "TramEntrance.shp",
+    "SBahn": TRANSPORT_DIR / "SBahnEntrance.shp",
+    "UBahn": TRANSPORT_DIR / "UBahnEntrance.shp",
 }
 
 stops_files = {
-    "Bus": "TransportNetworkParts2006/Bus2006_stops.shp",
-    "Tram": "TransportNetworkParts2006/Tram2006_stops.shp",
-    "SBahn": "TransportNetworkParts2006/SBahn2006_stops.shp",
-    "UBahn": "TransportNetworkParts2006/UBahn2006_stops.shp"
+    "Bus":   TRANSPORT_DIR / "Bus2006_stops.shp",
+    "Tram":  TRANSPORT_DIR / "Tram2006_stops.shp",
+    "SBahn": TRANSPORT_DIR / "SBahn2006_stops.shp",
+    "UBahn": TRANSPORT_DIR / "UBahn2006_stops.shp",
 }
 
 all_snapped_entrances = []
@@ -231,10 +246,10 @@ print(f"Generated {len(street_edges)} physical street walk edges.")
 print("Generating vehicle-based transit line edges...")
 
 transit_lines_files = {
-    "Bus": "TransportNetworkParts2006/Bus2006_lines.shp",
-    "Tram": "TransportNetworkParts2006/Tram2006_lines.shp",
-    "SBahn": "TransportNetworkParts2006/SBahn2006_lines.shp",
-    "UBahn": "TransportNetworkParts2006/UBahn2006_lines.shp"
+    "Bus":   TRANSPORT_DIR / "Bus2006_lines.shp",
+    "Tram":  TRANSPORT_DIR / "Tram2006_lines.shp",
+    "SBahn": TRANSPORT_DIR / "SBahn2006_lines.shp",
+    "UBahn": TRANSPORT_DIR / "UBahn2006_lines.shp",
 }
 
 # Travel speed parameters from the paper (km/h)
