@@ -1,0 +1,29 @@
+{
+  "task1a": {
+    "kappaeps_used": 0.03217477510842143,
+    "own_simple_ols": 0.029419544628208914,
+    "own_empw_ols": 0.03217477510842143,
+    "own_empw_ppml": 0.03447844143431755,
+    "arsw_minutes_ols": 0.06974174094900368
+  },
+  "task1b": {
+    "epsilon": 6.98,
+    "kappa": 0.00460956663444433,
+    "kappaeps": 0.03217477510842143,
+    "var_model": 0.004757841021062194,
+    "var_data": 0.004753490561544569,
+    "converged": true,
+    "gap": 0.0
+  },
+  "task1c": {
+    "converged": true,
+    "gap": 0.0,
+    "A_gt0": 9437,
+    "B_gt0": 11863
+  },
+  "task1d": {
+    "corr_logA": 0.9936572320207131,
+    "corr_logB": 0.9840799179454235,
+    "arsw_converged": true
+  }
+}
