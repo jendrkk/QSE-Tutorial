@@ -10,6 +10,7 @@ Topic_7_8/TTM/simplified_travel_time_matrix.parquet
 Topic_7_8/TTM/travel_time_matrices.mat
 
 cursor_prompts/
+cursor_prompt/
 
 *.parquet
 *.mat
