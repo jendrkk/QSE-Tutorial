@@ -11,5 +11,7 @@ Topic_7/TTM/travel_time_matrices.mat
 
 cursor_prompts/
 
+*.parquet
+
 .DS_Store
 .claude
