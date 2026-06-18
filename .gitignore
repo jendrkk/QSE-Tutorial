@@ -8,11 +8,17 @@ Topic_2/Output/3_cbd
 Topic_7_8/TTM/sample_travel_time_matrix.parquet
 Topic_7_8/TTM/simplified_travel_time_matrix.parquet
 Topic_7_8/TTM/travel_time_matrices.mat
+Topic_7_8/TTM/updated_u5_travel_time_matrix.parquet
+
+Topic_7_8/figs
+Topic_7_8/output
+Topic_7_8/TTM_stash
 
 cursor_prompts/
 cursor_prompt/
 
 *.parquet
+*.csv
 *.mat
 *.png
 

@@ -67,24 +67,3 @@ NOBS_2006 = 12309
 NOBS_1986_WEST = 7050
 
 WORK_EPSG = 25833   # ETRS89 / UTM 33N — metric CRS for Berlin
-
-# ===========================================================================
-# Topic 8 — U5 counterfactual (additive; do not touch Topic 7 constants above)
-# ===========================================================================
-
-# Explicit names for the two TTMs Topic 8 needs. USER_TTM_FULL above is kept
-# for Topic-7 backward compatibility but is misleading (it points at the U5
-# TTM). Use these explicit aliases in Topic-8 code.
-USER_TTM_BASELINE = TTM_DIR / "sample_travel_time_matrix.parquet"
-USER_TTM_U5       = TTM_DIR / "updated_u5_travel_time_matrix.parquet"
-
-# Separate Topic-8 output directories so we never overwrite Topic-7 artefacts.
-OUT_DIR_TOPIC8 = OUT_DIR / "topic8"
-FIG_DIR_TOPIC8 = FIG_DIR / "topic8"
-
-# Reduced-form ε·κ and Frechet shape ε to use as DEFAULTS in Topic-8 when no
-# Task-7 summary.json is available on disk. These mirror the ARSW benchmarks;
-# the Topic-8 orchestrator will prefer to read the student's own estimates
-# from OUT_DIR / "summary.json" (Task 1b output) and only fall back here.
-EPSILON_HAT_DEFAULT  = 6.83
-KAPPAEPS_HAT_DEFAULT = 0.07

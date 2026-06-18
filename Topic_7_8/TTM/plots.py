@@ -6,6 +6,7 @@ import scipy.io as sio
 import os
 from pathlib import Path
 from scipy.spatial.distance import cdist
+import seaborn as sns
 
 # ---------------------------------------------------------------------------
 # Path resolution: works regardless of the working directory at invocation.
@@ -25,6 +26,25 @@ METRIC_CRS   = "EPSG:25833"
 BLOCKS_SHP   = ARSW_DIR      / "Berlin4matlab.shp"
 STREETS_SHP  = TRANSPORT_DIR / "Streets.shp"
 MAT_FILE     = SCRIPT_DIR    / "travel_time_matrices.mat"
+
+sns.set_style("whitegrid")
+plt.rcParams.update({
+    #'figure.figsize': (6*2, 2*4.5),
+    'font.size': 16.0,
+    'font.family': 'serif',
+    'font.serif': 'Palatino',
+    'axes.titlesize': 'medium',
+    'figure.titlesize': 'large',
+    'legend.fontsize': 'medium',
+    # dpi for high-res output
+    'figure.dpi': 100,
+    'savefig.dpi': 300,
+    # Tight layout by default
+    'figure.autolayout': True,
+    'text.usetex': True,
+    'text.latex.preamble': r"\usepackage{amsmath}\usepackage{amssymb}\usepackage{siunitx}[=v2]",
+})
+
 
 def load_geometries():
     print("Loading geometries...")
@@ -111,13 +131,17 @@ def plot_average_travel_times(matrices, blocks_gdf, streets):
         ax=ax,
         edgecolor='none'
     )
+    green_gdf = gpd.read_file(ARSW_DIR / "BerlinGreen.shp").to_crs(epsg=25833).reset_index(drop=True)
+    water_gdf = gpd.read_file(ARSW_DIR / "BerlinWater.shp").to_crs(epsg=25833).reset_index(drop=True)
+    green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
+    water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
     
-    streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=2)
+    streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.35, zorder=0)
     ax.set_title('Berlin Geographic Accessibility: Average Travel Time\n(Full Multi-modal Network 2006)', fontsize=14, fontweight='bold', pad=15)
     ax.set_axis_off()
     
     plt.tight_layout()
-    plt.savefig('berlin_average_travel_times.png', dpi=300, bbox_inches='tight')
+    plt.savefig('berlin_average_travel_times.png', dpi=300, bbox_inches='tight', transparent=True)
     plt.close()
     print("Saved 'berlin_average_travel_times.png'")
 
@@ -151,6 +175,11 @@ def plot_average_speed_map(matrices, blocks_gdf, streets):
         ax=ax,
         edgecolor='none'
     )
+    
+    green_gdf = gpd.read_file(ARSW_DIR / "BerlinGreen.shp").to_crs(epsg=25833).reset_index(drop=True)
+    water_gdf = gpd.read_file(ARSW_DIR / "BerlinWater.shp").to_crs(epsg=25833).reset_index(drop=True)
+    green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
+    water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
     
     streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=2)
     ax.set_title('Berlin Geographic Performance: Average Journey Speed\n(Full Multi-modal Network 2006)', fontsize=14, fontweight='bold', pad=15)
@@ -281,7 +310,11 @@ def plot_geographic_comparisons(matrices, blocks_gdf, streets):
         map_gdf.plot(column='val', cmap=cmap, legend=True, ax=ax, edgecolor='none',
                      vmin=vlims[0] if vlims else None, vmax=vlims[1] if vlims else None,
                      legend_kwds={'label': label, 'orientation': 'horizontal', 'pad': 0.05, 'shrink': 0.7})
-        streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=2)
+        green_gdf = gpd.read_file(ARSW_DIR / "BerlinGreen.shp").to_crs(epsg=25833).reset_index(drop=True)
+        water_gdf = gpd.read_file(ARSW_DIR / "BerlinWater.shp").to_crs(epsg=25833).reset_index(drop=True)
+        green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
+        water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
+        streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=0)
         ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300); plt.close()
         print(f"     Saved {fname}")
 
@@ -312,7 +345,12 @@ def plot_geographic_comparisons(matrices, blocks_gdf, streets):
         map_gdf.plot(column='val', cmap=cmap, legend=True, ax=ax, edgecolor='none',
                      vmin=vlims[0] if vlims else None, vmax=vlims[1] if vlims else None,
                      legend_kwds={'label': label, 'orientation': 'horizontal', 'pad': 0.05, 'shrink': 0.7})
-        streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=2)
+        
+        green_gdf = gpd.read_file(ARSW_DIR / "BerlinGreen.shp").to_crs(epsg=25833).reset_index(drop=True)
+        water_gdf = gpd.read_file(ARSW_DIR / "BerlinWater.shp").to_crs(epsg=25833).reset_index(drop=True)
+        green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
+        water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
+        streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=0)
         ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300); plt.close()
         print(f"     Saved {fname}")
 

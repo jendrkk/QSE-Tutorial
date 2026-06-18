@@ -25,7 +25,7 @@ import geopandas as gpd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap, Normalize
+from matplotlib.colors import LinearSegmentedColormap
 import mapclassify
 
 
@@ -202,71 +202,6 @@ def plot_comparison(gdf, values_a, values_b, label_a, label_b, suptitle, out_pat
                 pass
         ax.set_axis_off(); ax.set_title(lab, fontsize=12)
     fig.suptitle(suptitle, fontsize=14)
-    Path(out_path).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
-    plt.close(fig)
-    return out_path
-
-
-# ---------------------------------------------------------------------------
-# Topic-8 percentage-change choropleth (diverging colormap, symmetric clipping)
-# ---------------------------------------------------------------------------
-
-def plot_pcc_map(gdf, pcc, title, out_path, *, truncate=(-50.0, 100.0),
-                 cmap="RdBu_r", bezirke_path=None, dpi=300,
-                 legend_label="% change", invalid_color="white"):
-    """Positional choropleth of a block-level *percentage change* vector.
-
-    Parameters
-    ----------
-    gdf : GeoDataFrame
-        Length-N geometry as returned by `load_geometry`. Row i ↔ pcc[i].
-    pcc : (N,) array of percentage changes (e.g. (x_u5 / x_base − 1) * 100).
-        NaN and ±inf entries (typical for blocks where the base value is 0)
-        are rendered as `invalid_color`.
-    title : str
-    out_path : path-like
-    truncate : (low, high) tuple
-        Clip the pcc vector before mapping (default −50%, +100%; matches MAPIT.m).
-    cmap : str or Colormap
-        Diverging colormap, centred at zero (RdBu_r: blue=negative, red=positive).
-    bezirke_path : optional path to a polygon shapefile overlaid as black lines.
-    dpi : output dpi.
-    legend_label : colorbar label.
-    invalid_color : color for NaN/inf/bad-geometry blocks.
-
-    Notes
-    -----
-    The colour mapping is forced to be symmetric and centred at 0 — so zero
-    always maps to white in RdBu_r, and equal positive/negative magnitudes
-    receive equally saturated colours.
-    """
-    pcc = np.asarray(pcc, float).copy()
-    lo, hi = float(truncate[0]), float(truncate[1])
-    bad = ~np.isfinite(pcc)
-    pcc_clip = np.where(bad, 0.0, np.clip(pcc, lo, hi))
-    # symmetric normalisation around 0
-    vmax_abs = max(abs(lo), abs(hi))
-    norm = Normalize(vmin=-vmax_abs, vmax=+vmax_abs)
-    g = gdf.copy()
-    g["v"] = pcc_clip
-    show = (~bad) & (~g["_bad_geom"].values)
-    fig, ax = plt.subplots(figsize=(8, 8))
-    if (~show).any():
-        g.loc[~show].plot(color=invalid_color, linewidth=0, ax=ax)
-    if show.any():
-        g.loc[show].plot(column="v", cmap=cmap, norm=norm, linewidth=0, ax=ax,
-                         legend=True, legend_kwds={"label": legend_label,
-                                                   "orientation": "vertical",
-                                                   "shrink": 0.55})
-    if bezirke_path and Path(bezirke_path).exists():
-        try:
-            bz = gpd.read_file(bezirke_path).to_crs(gdf.crs)
-            bz.boundary.plot(ax=ax, color="black", linewidth=0.25)
-        except Exception:
-            pass
-    ax.set_axis_off()
-    ax.set_title(title, fontsize=12)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
     plt.close(fig)

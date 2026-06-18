@@ -1,0 +1,80 @@
+{
+  "parameters": {
+    "epsilon": 7.36,
+    "kappaeps": 0.02557998073631475,
+    "kappa": 0.00347554086091233,
+    "epsilon_source": "task7_summary",
+    "kappaeps_source": "task7_summary",
+    "alpha": 0.8,
+    "beta": 0.75
+  },
+  "ttm": {
+    "max_time_saved_per_pair_min": 0.000732421875,
+    "min_time_saved_per_pair_min": -229.2196741104126,
+    "mean_time_saved_per_pair_min": -8.906294575330161
+  },
+  "calibration": {
+    "cached": true,
+    "A_gt0": 9437,
+    "B_gt0": 11863,
+    "converged": true
+  },
+  "baseline_consistency": {
+    "max_abs_HM_minus_HMT": 4.9725567805580795e-06,
+    "max_abs_HR_minus_HRT": 3.410605131648481e-12,
+    "max_abs_Q_minus_QT_Irsd": 0.0,
+    "max_abs_wage_minus_calwage_Iwpl": 0.0,
+    "corr_HM": 1.0,
+    "corr_HR": 1.0
+  },
+  "aggregates_baseline": {
+    "GDP": 1917711.9761380744,
+    "wage_bill": 1534169.5809020516,
+    "mean_wage_emp": 0.8664364600111208,
+    "total_HM": 1770666.0000000005,
+    "total_HR": 1770665.9999999998,
+    "sum_vv": 1534169.5809020512,
+    "Ubar": 7.763665075339294,
+    "HH": 1770666.0
+  },
+  "aggregates_u5": {
+    "GDP": 1916755.5560852408,
+    "wage_bill": 1533404.440526825,
+    "mean_wage_emp": 0.8660043399075968,
+    "total_HM": 1770666.0,
+    "total_HR": 1770666.0000000005,
+    "sum_vv": 1533404.4405268254,
+    "Ubar": 7.590809067298588,
+    "HH": 1770666.0
+  },
+  "aggregates_delta": {
+    "delta_GDP_eur": -956.4200528336223,
+    "delta_GDP_pct": -0.04987297700250748,
+    "delta_Ubar": -0.17285600804070622,
+    "delta_Ubar_pct": -2.226474305154802,
+    "delta_wage_bill_pct": -0.0498732594330864,
+    "delta_meanwage_pct": -0.0498732594330642,
+    "total_HM_check_HH_base": 4.656612873077393e-10,
+    "total_HM_check_HH_u5": 0.0,
+    "total_HR_check_HH_base": -2.3283064365386963e-10,
+    "total_HR_check_HH_u5": 4.656612873077393e-10
+  },
+  "watt": {
+    "watt_base_min": 46.34315549829026,
+    "watt_u5_min": 50.999683644663065,
+    "delta_watt_min": 4.656528146372807,
+    "delta_watt_pct": 10.047930695061535
+  },
+  "transport_planner": {
+    "total_savings_minutes_per_day": -12528947.768406883,
+    "total_savings_hours_per_year": -45939475.15082524,
+    "mean_savings_minutes_per_worker": -7.075839129687294,
+    "mean_wage_hourly_base": 0.8664364600111207,
+    "monetised_value_eur_per_year": {
+      "vot_50pct": -19901818.112224933,
+      "vot_75pct": -29852727.168337397,
+      "vot_100pct": -39803636.224449866
+    }
+  },
+  "elapsed_seconds": 25.121504068374634
+}

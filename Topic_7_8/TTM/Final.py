@@ -587,6 +587,7 @@ for scenario in scenarios:
     gc.collect()
     print(f"Completed and cleared RAM for {scenario['name']}.")
 
+'''
 # Also save as a highly compact MATLAB .mat file
 try:
     print("\nSaving highly optimized MATLAB .mat file...")
@@ -594,6 +595,7 @@ try:
     print("Saved 'travel_time_matrices.mat' successfully.")
 except Exception as e:
     print(f"Could not save .mat file: {e}")
+'''
 
 print("\nMatrix computation and saving completed successfully!")
 print("You can now run 'python plots.py' to generate the visualizations.")
