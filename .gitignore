@@ -8,10 +8,16 @@ Topic_2/Output/3_cbd
 Topic_7/TTM/sample_travel_time_matrix.parquet
 Topic_7/TTM/simplified_travel_time_matrix.parquet
 Topic_7/TTM/travel_time_matrices.mat
+
+# Topic_8 Data
 Topic_8/ExtendedUBahnNetwork
 Topic_8/VBB_2026
 Topic_8/TTM
 Topic_8/Blocks
+Topic_8/TransportNetworkParts2006/
+updated_u5_travel_time_matrix.parquet
+
+# System files
+*__pycache__/
 .DS_Store
 .claude
-TransportNetworkParts2006/
