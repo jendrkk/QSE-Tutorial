@@ -1,0 +1,47 @@
+{
+  "standard": {
+    "label": "Our Standard TTM (full PT, U-Bahn 25 km/h, no U5)",
+    "ols_eps_kappa": 0.03217477510842143,
+    "ols_se": 0.00527838551629492,
+    "ols_r2": 0.6240806509648842,
+    "ppml_eps_kappa": 0.03447844143431755,
+    "ppml_se": 0.004764582339335872,
+    "n": 144
+  },
+  "u5": {
+    "label": "Our U5 TTM (full PT, with U5 extension)",
+    "ols_eps_kappa": 0.03242907909900248,
+    "ols_se": 0.005292447550626345,
+    "ols_r2": 0.6246262965072569,
+    "ppml_eps_kappa": 0.03468632159834377,
+    "ppml_se": 0.0047731062599005464,
+    "n": 144
+  },
+  "fast": {
+    "label": "Our FAST TTM (U-Bahn 35 km/h)",
+    "ols_eps_kappa": 0.040268978378745705,
+    "ols_se": 0.0067103793668606216,
+    "ols_r2": 0.6236335338671883,
+    "ppml_eps_kappa": 0.04267829797151292,
+    "ppml_se": 0.005823223885684265,
+    "n": 144
+  },
+  "gtfs": {
+    "label": "Our GTFS TTM (2024 VBB feed)",
+    "ols_eps_kappa": 0.03343199541954714,
+    "ols_se": 0.005311539086375015,
+    "ols_r2": 0.6295611462750936,
+    "ppml_eps_kappa": 0.03539573691886665,
+    "ppml_se": 0.00483090694382923,
+    "n": 144
+  },
+  "arsw": {
+    "label": "ARSW Original TTM (Ahlfeldt et al. 2015)",
+    "ols_eps_kappa": 0.05625607058888021,
+    "ols_se": 0.009154140299035649,
+    "ols_r2": 0.6341440279558598,
+    "ppml_eps_kappa": 0.05772677826663575,
+    "ppml_se": 0.007408179514230241,
+    "n": 144
+  }
+}

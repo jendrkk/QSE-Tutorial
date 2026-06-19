@@ -186,7 +186,7 @@ def plot_average_speed_map(matrices, blocks_gdf, streets):
     ax.set_axis_off()
     
     plt.tight_layout()
-    plt.savefig('berlin_average_travel_speeds.png', dpi=300, bbox_inches='tight')
+    plt.savefig('berlin_average_travel_speeds.png', dpi=300, bbox_inches='tight', transparent=True)
     plt.close()
     print("Saved 'berlin_average_travel_speeds.png'")
 
@@ -202,17 +202,17 @@ def plot_speed_distribution(matrices, blocks_gdf):
         avg_v_simple = np.nanmean(np.clip((dist_matrix / matrices['simple']) * 0.06, 0, 100), axis=1)
 
     plt.figure(figsize=(10, 6), dpi=300)
-    plt.hist(avg_v_full, bins=50, alpha=0.5, label='With Buses & Trams', color='tab:blue', density=True)
-    plt.hist(avg_v_simple, bins=50, alpha=0.5, label='Without Buses & Trams', color='tab:orange', density=True)
+    plt.hist(avg_v_full, bins=50, alpha=0.5, label=r'With Buses \& Trams', color='tab:blue', density=True)
+    plt.hist(avg_v_simple, bins=50, alpha=0.5, label=r'Without Buses \& Trams', color='tab:orange', density=True)
     
-    plt.axvline(np.nanmean(avg_v_full), color='blue', linestyle='--', label=f'Mean (With): {np.nanmean(avg_v_full):.1f} km/h')
-    plt.axvline(np.nanmean(avg_v_simple), color='orange', linestyle='--', label=f'Mean (Without): {np.nanmean(avg_v_simple):.1f} km/h')
+    plt.axvline(np.nanmean(avg_v_full), color='blue', linestyle='--', label=rf'Mean (With): {np.nanmean(avg_v_full):.1f} km/h')
+    plt.axvline(np.nanmean(avg_v_simple), color='orange', linestyle='--', label=rf'Mean (Without): {np.nanmean(avg_v_simple):.1f} km/h')
     
     plt.xlabel('Average Journey Speed per Block (km/h)', fontsize=12)
     plt.ylabel('Density', fontsize=12)
-    plt.title('Shift in Berlin Travel Speed Distribution\n(Impact of Bus & Tram Network)', fontsize=14, fontweight='bold')
+    plt.title(r'Shift in Berlin Travel Speed Distribution' '\n' r'(Impact of Bus \& Tram Network)', fontsize=14, fontweight='bold')
     plt.legend(); plt.grid(axis='y', alpha=0.3); plt.tight_layout()
-    plt.savefig('speed_distribution_histogram.png', dpi=300); plt.close()
+    plt.savefig('speed_distribution_histogram.png', dpi=300, transparent=True); plt.close()
     print("Saved 'speed_distribution_histogram.png'")
 
 def plot_accessibility_scatter(matrices):
@@ -236,11 +236,11 @@ def plot_accessibility_scatter(matrices):
     plt.plot(x, m*x + b, color='black', linewidth=2, label=f'Linear Fit (slope={m:.2f})')
     
     plt.xlim(lims); plt.ylim(lims)
-    plt.xlabel('Avg Travel Time: WITHOUT Buses & Trams (Minutes)', fontsize=12, fontweight='bold')
-    plt.ylabel('Avg Travel Time: WITH Buses & Trams (Minutes)', fontsize=12, fontweight='bold')
+    plt.xlabel(r'Avg Travel Time: WITHOUT Buses \& Trams (Minutes)', fontsize=12, fontweight='bold')
+    plt.ylabel(r'Avg Travel Time: WITH Buses \& Trams (Minutes)', fontsize=12, fontweight='bold')
     plt.title('Accessibility Comparison: Time to Reach All Other Blocks\n(Points below line = Faster with Buses/Trams)', fontsize=14, fontweight='bold', pad=20)
     plt.grid(True, linestyle='--', alpha=0.5); plt.legend(); plt.tight_layout()
-    plt.savefig('accessibility_comparison_scatter.png', dpi=300); plt.close()
+    plt.savefig('accessibility_comparison_scatter.png', dpi=300, transparent=True); plt.close()
     print("Saved 'accessibility_comparison_scatter.png'")
 
 def plot_speed_scatter(matrices, blocks_gdf):
@@ -275,11 +275,11 @@ def plot_speed_scatter(matrices, blocks_gdf):
     plt.plot(x, m*x + b, color='black', linewidth=2, label=f'Linear Fit (slope={m:.2f})')
     
     plt.xlim(lims); plt.ylim(lims)
-    plt.xlabel('Avg Travel Speed: WITHOUT Buses & Trams (km/h)', fontsize=12, fontweight='bold')
-    plt.ylabel('Avg Travel Speed: WITH Buses & Trams (km/h)', fontsize=12, fontweight='bold')
-    plt.title('Performance Comparison: journey Speed (Euclidean Dist / Time)\n(Points above line = Faster Journeys with Buses/Trams)', fontsize=14, fontweight='bold', pad=20)
+    plt.xlabel(r'Avg Travel Speed: WITHOUT Buses \& Trams (km/h)', fontsize=12, fontweight='bold')
+    plt.ylabel(r'Avg Travel Speed: WITH Buses \& Trams (km/h)', fontsize=12, fontweight='bold')
+    plt.title('Performance Comparison: Journey Speed (Euclidean Dist / Time)\n(Points above line = Faster Journeys with Buses/Trams)', fontsize=14, fontweight='bold', pad=20)
     plt.grid(True, linestyle='--', alpha=0.5); plt.legend(); plt.tight_layout()
-    plt.savefig('speed_comparison_scatter.png', dpi=300); plt.close()
+    plt.savefig('speed_comparison_scatter.png', dpi=300, transparent=True); plt.close()
     print("Saved 'speed_comparison_scatter.png'")
 
 def plot_geographic_comparisons(matrices, blocks_gdf, streets):
@@ -315,7 +315,7 @@ def plot_geographic_comparisons(matrices, blocks_gdf, streets):
         green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
         water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
         streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=0)
-        ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300); plt.close()
+        ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300, transparent=True); plt.close()
         print(f"     Saved {fname}")
 
     # 2. SPEED MAPS
@@ -351,7 +351,7 @@ def plot_geographic_comparisons(matrices, blocks_gdf, streets):
         green_gdf.plot(ax=ax, color='forestgreen', alpha=0.35, linewidth=0.1, zorder=0)
         water_gdf.plot(ax=ax, color='royalblue', alpha=0.35, linewidth=0.1, zorder=0)
         streets.plot(ax=ax, color='white', linewidth=0.1, alpha=0.3, zorder=0)
-        ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300); plt.close()
+        ax.set_axis_off(); plt.tight_layout(); plt.savefig(fname, dpi=300, transparent=True); plt.close()
         print(f"     Saved {fname}")
 
 if __name__ == "__main__":

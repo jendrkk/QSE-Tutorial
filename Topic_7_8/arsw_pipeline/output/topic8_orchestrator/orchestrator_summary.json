@@ -1,0 +1,227 @@
+{
+  "args": {
+    "arsw_ttm": false,
+    "alts": [
+      "u5",
+      "fast",
+      "gtfs"
+    ],
+    "max_iter": 50,
+    "no_maps": true,
+    "skip_gravity_table": false,
+    "out_suffix": null,
+    "ttm_hist_sample": 2000000,
+    "save_alt_ucprob": false
+  },
+  "ref": {
+    "key": "standard",
+    "display_name": "Our Standard TTM (full PT, U-Bahn 25 km/h, no U5)",
+    "latex_name": "Standard TTM"
+  },
+  "ref_state": {
+    "epsilon": 6.98,
+    "kappa": 0.00460956663444433,
+    "kappaeps": 0.03217477510842143,
+    "calibration_converged": true,
+    "ref_equilibrium_converged": true,
+    "ref_equilibrium_n_iter": 1,
+    "consistency": {
+      "max_abs_HM_minus_HMT": 5.126490577822551e-06,
+      "max_abs_HR_minus_HRT": 3.865352482534945e-12,
+      "max_abs_Q_minus_QT_Irsd": 0.0,
+      "max_abs_wage_minus_calwage_Iwpl": 0.0,
+      "corr_HM": 0.9999999999999999,
+      "corr_HR": 1.0
+    },
+    "timings_s": {
+      "task1b_sec": 4.912108898162842,
+      "task1c_sec": 14.796352863311768,
+      "solve_ref_sec": 0.9049129486083984
+    }
+  },
+  "gravity_summary": {
+    "standard": {
+      "label": "Our Standard TTM (full PT, U-Bahn 25 km/h, no U5)",
+      "ols_eps_kappa": 0.03217477510842143,
+      "ols_se": 0.00527838551629492,
+      "ols_r2": 0.6240806509648842,
+      "ppml_eps_kappa": 0.03447844143431755,
+      "ppml_se": 0.004764582339335872,
+      "n": 144
+    },
+    "u5": {
+      "label": "Our U5 TTM (full PT, with U5 extension)",
+      "ols_eps_kappa": 0.03242907909900248,
+      "ols_se": 0.005292447550626345,
+      "ols_r2": 0.6246262965072569,
+      "ppml_eps_kappa": 0.03468632159834377,
+      "ppml_se": 0.0047731062599005464,
+      "n": 144
+    },
+    "fast": {
+      "label": "Our FAST TTM (U-Bahn 35 km/h)",
+      "ols_eps_kappa": 0.040268978378745705,
+      "ols_se": 0.0067103793668606216,
+      "ols_r2": 0.6236335338671883,
+      "ppml_eps_kappa": 0.04267829797151292,
+      "ppml_se": 0.005823223885684265,
+      "n": 144
+    },
+    "gtfs": {
+      "label": "Our GTFS TTM (2024 VBB feed)",
+      "ols_eps_kappa": 0.03343199541954714,
+      "ols_se": 0.005311539086375015,
+      "ols_r2": 0.6295611462750936,
+      "ppml_eps_kappa": 0.03539573691886665,
+      "ppml_se": 0.00483090694382923,
+      "n": 144
+    },
+    "arsw": {
+      "label": "ARSW Original TTM (Ahlfeldt et al. 2015)",
+      "ols_eps_kappa": 0.05625607058888021,
+      "ols_se": 0.009154140299035649,
+      "ols_r2": 0.6341440279558598,
+      "ppml_eps_kappa": 0.05772677826663575,
+      "ppml_se": 0.007408179514230241,
+      "n": 144
+    }
+  },
+  "comparisons": {
+    "u5": {
+      "ref_key": "standard",
+      "alt_key": "u5",
+      "alt_equilibrium_converged": true,
+      "alt_equilibrium_n_iter": 30,
+      "delta_agg": {
+        "delta_GDP_eur": 89.02049206686206,
+        "delta_GDP_pct": 0.004531650686789845,
+        "delta_Ubar": 0.006421770765195234,
+        "delta_Ubar_pct": 0.0739082901618282,
+        "delta_wage_bill_pct": 0.0045337823558755375,
+        "delta_meanwage_pct": 0.0045337823558755375,
+        "delta_sum_vv_pct": 0.004533782355853333,
+        "total_HM_check_HH_ref": 0.0,
+        "total_HM_check_HH_alt": 0.0,
+        "total_HR_check_HH_ref": 0.0,
+        "total_HR_check_HH_alt": 0.0
+      },
+      "watt": {
+        "ref_min": 44.663109405376055,
+        "alt_min": 44.5453217031698,
+        "delta_min": -0.11778770220625745,
+        "delta_pct": -0.2637248140006987
+      },
+      "planner": {
+        "total_savings_minutes_per_day": 273249.54532476416,
+        "total_savings_hours_per_year": 1001914.9995241351,
+        "mean_savings_minutes_per_worker": 0.154320207947046,
+        "mean_wage_hourly_base": 0.8875378920449848,
+        "monetised_value_eur_per_year": {
+          "vot_50pct": 444618.7633429515,
+          "vot_75pct": 666928.1450144273,
+          "vot_100pct": 889237.526685903
+        }
+      },
+      "ttm_diff": {
+        "max_saved_min": 11.189658164978027,
+        "min_saved_min": -0.039928436279296875,
+        "mean_saved_min": 0.14307773439864255,
+        "median_saved_min": -0.01096343994140625,
+        "pairs_with_savings": 12503502,
+        "pairs_with_loss": 104160124,
+        "pairs_unchanged": 34835546
+      }
+    },
+    "fast": {
+      "ref_key": "standard",
+      "alt_key": "fast",
+      "alt_equilibrium_converged": true,
+      "alt_equilibrium_n_iter": 47,
+      "delta_agg": {
+        "delta_GDP_eur": 846.0424309759401,
+        "delta_GDP_pct": 0.04306838430541138,
+        "delta_Ubar": 0.18777560035420393,
+        "delta_Ubar_pct": 2.161113198170761,
+        "delta_wage_bill_pct": 0.04307007792010431,
+        "delta_meanwage_pct": 0.043070077920126515,
+        "delta_sum_vv_pct": 0.04307007792010431,
+        "total_HM_check_HH_ref": 0.0,
+        "total_HM_check_HH_alt": -4.656612873077393e-10,
+        "total_HR_check_HH_ref": 0.0,
+        "total_HR_check_HH_alt": -2.3283064365386963e-10
+      },
+      "watt": {
+        "ref_min": 44.663109405376055,
+        "alt_min": 41.53702908642517,
+        "delta_min": -3.1260803189508835,
+        "delta_pct": -6.999244702328311
+      },
+      "planner": {
+        "total_savings_minutes_per_day": 7593560.411940968,
+        "total_savings_hours_per_year": 27843054.843783546,
+        "mean_savings_minutes_per_worker": 4.2885334738120955,
+        "mean_wage_hourly_base": 0.8875378920449848,
+        "monetised_value_eur_per_year": {
+          "vot_50pct": 12355883.102072278,
+          "vot_75pct": 18533824.653108418,
+          "vot_100pct": 24711766.204144556
+        }
+      },
+      "ttm_diff": {
+        "max_saved_min": 24.81958770751953,
+        "min_saved_min": 0.0,
+        "mean_saved_min": 6.602160829383951,
+        "median_saved_min": 6.4067535400390625,
+        "pairs_with_savings": 124953220,
+        "pairs_with_loss": 0,
+        "pairs_unchanged": 26545952
+      }
+    },
+    "gtfs": {
+      "ref_key": "standard",
+      "alt_key": "gtfs",
+      "alt_equilibrium_converged": true,
+      "alt_equilibrium_n_iter": 40,
+      "delta_agg": {
+        "delta_GDP_eur": 10.733308010501787,
+        "delta_GDP_pct": 0.0005463865845767302,
+        "delta_Ubar": 0.018777076806864912,
+        "delta_Ubar_pct": 0.21610575832982093,
+        "delta_wage_bill_pct": 0.0005469162595916899,
+        "delta_meanwage_pct": 0.0005469162595694854,
+        "delta_sum_vv_pct": 0.000546916259547281,
+        "total_HM_check_HH_ref": 0.0,
+        "total_HM_check_HH_alt": 4.656612873077393e-10,
+        "total_HR_check_HH_ref": 0.0,
+        "total_HR_check_HH_alt": 0.0
+      },
+      "watt": {
+        "ref_min": 44.663109405376055,
+        "alt_min": 44.34697503278032,
+        "delta_min": -0.31613437259573374,
+        "delta_pct": -0.7078198916389833
+      },
+      "planner": {
+        "total_savings_minutes_per_day": 754170.9194013224,
+        "total_savings_hours_per_year": 2765293.371138182,
+        "mean_savings_minutes_per_worker": 0.4259250018926903,
+        "mean_wage_hourly_base": 0.8875378920449848,
+        "monetised_value_eur_per_year": {
+          "vot_50pct": 1227151.324752976,
+          "vot_75pct": 1840726.987129464,
+          "vot_100pct": 2454302.649505952
+        }
+      },
+      "ttm_diff": {
+        "max_saved_min": 14.092071533203125,
+        "min_saved_min": -218.8843011856079,
+        "mean_saved_min": 0.5738695246700863,
+        "median_saved_min": 0.000141143798828125,
+        "pairs_with_savings": 133886176,
+        "pairs_with_loss": 16466058,
+        "pairs_unchanged": 1146938
+      }
+    }
+  },
+  "elapsed_seconds": 87.50555610656738
+}

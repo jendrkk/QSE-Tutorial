@@ -257,7 +257,7 @@ vehicle_speeds_kmh = {
     "Bus": 14.3,
     "Tram": 14.5,
     "SBahn": 25.0,
-    "UBahn": 25.0
+    "UBahn": 35.0 #25.0
 }
 
 all_transit_edges_list = []
