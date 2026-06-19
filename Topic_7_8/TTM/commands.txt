@@ -1,0 +1,28 @@
+# ============================================================
+#  plots_delta.py  –  comparison runs
+#  Run from the TTM/ folder after:  conda activate py314
+# ============================================================
+
+# 1. Standard  vs  U5
+python plots_delta.py \
+    "../TTM_stash/TTM standard/sample_travel_time_matrix.parquet" \
+    "../TTM_stash/TTM U5/sample_travel_time_matrix.parquet" \
+    --label-a "TTM Standard" \
+    --label-b "TTM U5" \
+    --output-dir "../TTM_stash/delta_standard_vs_u5"
+
+# 2. Standard  vs  FAST
+python plots_delta.py \
+    "../TTM_stash/TTM standard/sample_travel_time_matrix.parquet" \
+    "../TTM_stash/TTM FAST/sample_travel_time_matrix.parquet" \
+    --label-a "TTM Standard" \
+    --label-b "TTM FAST" \
+    --output-dir "../TTM_stash/delta_standard_vs_fast"
+
+# 3. Standard  vs  GTFS
+python plots_delta.py \
+    "../TTM_stash/TTM standard/sample_travel_time_matrix.parquet" \
+    "../TTM_stash/TTM GTFS/updated_u5_travel_time_matrix.parquet" \
+    --label-a "TTM Standard" \
+    --label-b "TTM GTFS" \
+    --output-dir "../TTM_stash/delta_standard_vs_gtfs"

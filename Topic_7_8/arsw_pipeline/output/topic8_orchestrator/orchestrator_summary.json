@@ -34,9 +34,9 @@
       "corr_HR": 1.0
     },
     "timings_s": {
-      "task1b_sec": 4.442182779312134,
-      "task1c_sec": 12.624265909194946,
-      "solve_ref_sec": 0.8905396461486816
+      "task1b_sec": 5.88751220703125,
+      "task1c_sec": 16.77636981010437,
+      "solve_ref_sec": 0.9260940551757812
     }
   },
   "gravity_summary": {
@@ -223,5 +223,5 @@
       }
     }
   },
-  "elapsed_seconds": 378.8282790184021
+  "elapsed_seconds": 379.5824189186096
 }

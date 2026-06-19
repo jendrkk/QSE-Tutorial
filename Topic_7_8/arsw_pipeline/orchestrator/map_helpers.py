@@ -83,22 +83,43 @@ def _draw_choropleth(ax, gdf: gpd.GeoDataFrame, values: np.ndarray, *,
 
 
 # ===========================================================================
-# 1. Diverging %-change (single, paired, 2x2 grid)
+# 1. Diverging %-change helpers + (single, paired, 2x2 grid)
 # ===========================================================================
+def _data_driven_sym_norm(values: np.ndarray, truncate: tuple,
+                          percentile: float = 99.0) -> tuple[np.ndarray, Normalize]:
+    """Return (clipped_values, symmetric Normalize) scaled to actual data extent.
+
+    vmax = min(truncate_cap, percentile(|finite_values|, `percentile`)).
+    Using a high percentile instead of the raw max makes the scale robust to
+    individual outlier blocks without hiding the bulk of the distribution.
+    Hard `truncate` bounds remain as a sanity cap (e.g. ±50 / +100).
+    """
+    lo, hi = float(truncate[0]), float(truncate[1])
+    v = np.asarray(values, float)
+    bad = ~np.isfinite(v)
+    v_clip = np.where(bad, np.nan, np.clip(v, lo, hi))
+    finite = v_clip[np.isfinite(v_clip)]
+    if finite.size == 0:
+        vmax_abs = max(abs(lo), abs(hi))
+    else:
+        vmax_abs = float(np.percentile(np.abs(finite), percentile))
+        if vmax_abs < 1e-9:          # flat distribution (all zeros) — avoid degenerate norm
+            vmax_abs = max(abs(lo), abs(hi))
+    # Replace NaN back with 0 for rendering (NaN blocks are already masked via invalid_mask)
+    v_render = np.where(bad, 0.0, np.clip(v, -vmax_abs, vmax_abs))
+    norm = Normalize(vmin=-vmax_abs, vmax=+vmax_abs)
+    return v_render, norm, bad
+
+
 def plot_pcc_single(out_path, gdf, pcc, *, title, overlays,
                     truncate=(-50.0, 100.0), cmap=CMAP_DIVERGING,
                     cbar_label=r"\% change", figsize=FIGSIZE_SINGLE_MAP,
                     alpha_green=DEFAULT_ALPHA_GREEN,
                     alpha_water=DEFAULT_ALPHA_WATER,
                     alpha_streets=DEFAULT_ALPHA_STREETS) -> Path:
-    pcc = np.asarray(pcc, float)
-    lo, hi = float(truncate[0]), float(truncate[1])
-    bad = ~np.isfinite(pcc)
-    pcc_clip = np.where(bad, 0.0, np.clip(pcc, lo, hi))
-    vmax_abs = max(abs(lo), abs(hi))
-    norm = Normalize(vmin=-vmax_abs, vmax=+vmax_abs)
+    pcc_render, norm, bad = _data_driven_sym_norm(np.asarray(pcc, float), truncate)
     fig, ax = plt.subplots(figsize=figsize, constrained_layout=True)
-    sm = _draw_choropleth(ax, gdf, pcc_clip, cmap=cmap, norm=norm,
+    sm = _draw_choropleth(ax, gdf, pcc_render, cmap=cmap, norm=norm,
                           invalid_mask=bad)
     add_overlays_to_ax(ax, overlays, alpha_green=alpha_green,
                        alpha_water=alpha_water, alpha_streets=alpha_streets)
@@ -121,29 +142,26 @@ def plot_pcc_paired(out_path, gdf, pcc_a, pcc_b, *,
                     alpha_green=DEFAULT_ALPHA_GREEN,
                     alpha_water=DEFAULT_ALPHA_WATER,
                     alpha_streets=DEFAULT_ALPHA_STREETS) -> Path:
-    pcc_a = np.asarray(pcc_a, float); pcc_b = np.asarray(pcc_b, float)
-    lo, hi = float(truncate[0]), float(truncate[1])
-    vmax_abs = max(abs(lo), abs(hi))
-    norm = Normalize(vmin=-vmax_abs, vmax=+vmax_abs)
-    bad_a = ~np.isfinite(pcc_a); bad_b = ~np.isfinite(pcc_b)
-    clip_a = np.where(bad_a, 0.0, np.clip(pcc_a, lo, hi))
-    clip_b = np.where(bad_b, 0.0, np.clip(pcc_b, lo, hi))
+    """Each panel gets its own data-driven colorbar so small effects are visible."""
+    panels = [
+        (np.asarray(pcc_a, float), title_a),
+        (np.asarray(pcc_b, float), title_b),
+    ]
     fig, axes = plt.subplots(1, 2, figsize=figsize, constrained_layout=True)
-    sm = None
-    for ax, vals, bad, sub in [(axes[0], clip_a, bad_a, title_a),
-                                (axes[1], clip_b, bad_b, title_b)]:
-        sm = _draw_choropleth(ax, gdf, vals, cmap=cmap, norm=norm,
+    for ax, (raw, sub) in zip(axes, panels):
+        v_render, norm, bad = _data_driven_sym_norm(raw, truncate)
+        sm = _draw_choropleth(ax, gdf, v_render, cmap=cmap, norm=norm,
                               invalid_mask=bad)
         add_overlays_to_ax(ax, overlays, alpha_green=alpha_green,
                            alpha_water=alpha_water, alpha_streets=alpha_streets)
         ax.set_axis_off()
         ax.set_title(sub)
+        if sm is not None:
+            cb = fig.colorbar(sm, ax=ax, orientation="vertical",
+                              shrink=0.75, pad=0.01)
+            cb.set_label(cbar_label)
     if suptitle:
         fig.suptitle(suptitle)
-    if sm is not None:
-        cb = fig.colorbar(sm, ax=axes.ravel().tolist(),
-                          orientation="vertical", shrink=0.65, pad=0.01)
-        cb.set_label(cbar_label)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, transparent=True)
     plt.close(fig)
@@ -156,31 +174,27 @@ def plot_pcc_grid_2x2(out_path, gdf, pccs, *, titles, suptitle=None,
                       alpha_green=DEFAULT_ALPHA_GREEN,
                       alpha_water=DEFAULT_ALPHA_WATER,
                       alpha_streets=DEFAULT_ALPHA_STREETS) -> Path:
-    """`pccs` and `titles` are dicts with exactly 4 same-key entries; row-major panel order."""
+    """`pccs` and `titles` are dicts with exactly 4 same-key entries; row-major panel order.
+    Each panel gets its own data-driven colorbar."""
     keys = list(pccs.keys())
     if len(keys) != 4:
         raise ValueError(f"plot_pcc_grid_2x2 needs 4 panels, got {len(keys)}")
-    lo, hi = float(truncate[0]), float(truncate[1])
-    vmax_abs = max(abs(lo), abs(hi))
-    norm = Normalize(vmin=-vmax_abs, vmax=+vmax_abs)
     fig, axes = plt.subplots(2, 2, figsize=figsize, constrained_layout=True)
-    sm = None
     for ax, key in zip(axes.ravel(), keys):
-        v = np.asarray(pccs[key], float)
-        bad = ~np.isfinite(v)
-        clip = np.where(bad, 0.0, np.clip(v, lo, hi))
-        sm = _draw_choropleth(ax, gdf, clip, cmap=cmap, norm=norm,
+        v_render, norm, bad = _data_driven_sym_norm(
+            np.asarray(pccs[key], float), truncate)
+        sm = _draw_choropleth(ax, gdf, v_render, cmap=cmap, norm=norm,
                               invalid_mask=bad)
         add_overlays_to_ax(ax, overlays, alpha_green=alpha_green,
                            alpha_water=alpha_water, alpha_streets=alpha_streets)
         ax.set_axis_off()
         ax.set_title(titles.get(key, key))
+        if sm is not None:
+            cb = fig.colorbar(sm, ax=ax, orientation="vertical",
+                              shrink=0.75, pad=0.01)
+            cb.set_label(cbar_label)
     if suptitle:
         fig.suptitle(suptitle)
-    if sm is not None:
-        cb = fig.colorbar(sm, ax=axes.ravel().tolist(),
-                          orientation="vertical", shrink=0.6, pad=0.01)
-        cb.set_label(cbar_label)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, transparent=True)
     plt.close(fig)
