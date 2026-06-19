@@ -387,7 +387,7 @@ def plot_welfare_comparison(out_path, *, model_delta_gdp_eur,
     bars = ax.bar(x, values, color=cols, alpha=0.85, edgecolor="black", linewidth=0.6)
     ax.axhline(0.0, color="black", linewidth=0.6)
     ax.set_xticks(x); ax.set_xticklabels(labels, rotation=15, ha="right")
-    ax.set_ylabel(r"\EUR{} per year")
+    ax.set_ylabel(r"\texteuro{} per year")
     ax.set_title(title)
     ax.grid(True, axis="y", alpha=0.3)
     ymax = max(abs(v) for v in values) if values else 1.0

@@ -6,8 +6,8 @@
       "fast",
       "gtfs"
     ],
-    "max_iter": 50,
-    "no_maps": true,
+    "max_iter": 1000,
+    "no_maps": false,
     "skip_gravity_table": false,
     "out_suffix": null,
     "ttm_hist_sample": 2000000,
@@ -34,9 +34,9 @@
       "corr_HR": 1.0
     },
     "timings_s": {
-      "task1b_sec": 4.912108898162842,
-      "task1c_sec": 14.796352863311768,
-      "solve_ref_sec": 0.9049129486083984
+      "task1b_sec": 4.442182779312134,
+      "task1c_sec": 12.624265909194946,
+      "solve_ref_sec": 0.8905396461486816
     }
   },
   "gravity_summary": {
@@ -223,5 +223,5 @@
       }
     }
   },
-  "elapsed_seconds": 87.50555610656738
+  "elapsed_seconds": 378.8282790184021
 }
