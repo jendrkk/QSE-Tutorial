@@ -18,7 +18,6 @@ def solver(A, H, dist, border_penalty,C_m,LL_c, params, tolerance = 1e-3):
     tolerance: parametr that determine when we reached the equilibrium
     """
     N = len(A) # number of observations
-    C = len(LL_c)
 
     # unpacking the paramter list
     sigma   = params[0] 
