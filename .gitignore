@@ -17,6 +17,11 @@ Topic_8/Blocks
 Topic_8/TransportNetworkParts2006/
 updated_u5_travel_time_matrix.parquet
 
+# Data
+*.parquet
+*.csv
+*.dta
+
 # System files
 *__pycache__/
 .DS_Store
